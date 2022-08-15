@@ -2,7 +2,9 @@
 實作內容包含（會員系統 / 產品上下架 / 購物車功能 / 檢視訂單）
 
 實作內容說明：
-透過Laravel 9.x 使用 MVC架構 撰寫開發，並利用 *RESTful API 的設計模式撰寫 Route。
+透過Laravel 9.x 使用 MVC架構 撰寫開發，並利用 *RESTful API* 的設計模式撰寫 Route
+也使用Middleware 以防止沒有登入的人隨意更動商品內容，或透過連結的方式對商品資訊進行更改。
+
 
 功能說明：
 
@@ -15,6 +17,21 @@
 3.檢視訂單：可在下單結束後，重複觀看自己購買內容
 
 
+------------------快速連結相關頁面------------------
 
-未來預期開發功能：金流API串接、搜尋商品
+Views 
+https://github.com/heyIamYi/Full-class-E-commerce/tree/main/resources/views
+
+Controller
+https://github.com/heyIamYi/Full-class-E-commerce/tree/main/app/Http/Controllers
+
+Models
+https://github.com/heyIamYi/Full-class-E-commerce/tree/main/app/Models
+
+
+------------------------------------
+
+未來會持續開發的功能：金流API串接、搜尋商品
+
+------------------------------------
 
