@@ -1,3 +1,12 @@
+上課實作練習的電商網站。
+實作內容包含（會員系統 / 產品上下架 / 購物車功能 / 檢視訂單）
+
+
+
+
+
+
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－以下為Laravel的介紹－－－－－－－－－－－－－－－－－－－－－－－－－
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
