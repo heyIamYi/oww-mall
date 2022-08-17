@@ -6,6 +6,10 @@
 <!-- 使用Middleware 以防止沒有登入的人隨意更動商品內容，或透過連結的方式對商品資訊進行更改。
  -->
 
+相關技術說明：
+後臺購物車共有四頁使用Session將前一個頁面的相關資料往前傳
+
+
 功能說明：
 
 會員系統：會員進行註冊後可執行以下功能
@@ -28,10 +32,4 @@ https://github.com/heyIamYi/Full-class-E-commerce/tree/main/app/Http/Controllers
 Models
 https://github.com/heyIamYi/Full-class-E-commerce/tree/main/app/Models
 
-
-------------------------------------
-
-未來會持續開發的功能：金流API串接、搜尋商品
-
-------------------------------------
 
