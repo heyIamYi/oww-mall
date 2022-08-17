@@ -69,7 +69,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Taipei',
 
     /*
     |--------------------------------------------------------------------------
@@ -163,6 +163,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Krlove\EloquentModelGenerator\Provider\GeneratorServiceProvider::class,
 
         /*
          * Package Service Providers...

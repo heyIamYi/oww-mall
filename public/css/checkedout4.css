@@ -137,13 +137,14 @@ main .banner {
   padding: 3% 23%;
 }
 main .banner .list-detail {
-  height: 100%;
+  /* height: 100%; */
   background-color: #f3f4f6;
   padding: 4% 4%;
   border-radius: 10px;
 }
 main .banner .list-detail #section1 {
   padding: 0;
+  height:100%;
 }
 main .banner .list-detail #section1 h3 {
   font-weight: bold;

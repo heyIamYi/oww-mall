@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\ShoppingCart;
 
 class User extends Authenticatable
 {
@@ -21,6 +22,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'power',
     ];
 
     /**
@@ -41,4 +43,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    //使用者可以擁有多筆想要的商品
+    public function shopping_list()
+    {
+
+        return $this->hasMany(ShoppingCart::class, 'user_id', 'id');
+    }
+
+
+    //使用者可擁有多筆訂單
+    public function order()
+    {
+        //訂單(對方) vs 使用者(自己)
+        return $this->hasMany(ShoppingCart::class, 'user_id', 'id');
+    }
 }

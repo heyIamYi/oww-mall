@@ -7,6 +7,9 @@ body {
   padding: 0;
 }
 
+nav {
+  position: relative;
+}
 nav .logo {
   width: 105px;
   height: 60px;
@@ -20,11 +23,11 @@ nav .logo img {
 nav .container-xxl {
   height: 100px;
   background-color: white;
+  justify-content: space-between;
 }
-@media (max-width: 768px) {
+@media (max-width: 859px) {
   nav .container-xxl {
     display: flex;
-    justify-content: space-between;
   }
 }
 nav .container-xxl a {
@@ -33,7 +36,7 @@ nav .container-xxl a {
 nav .container-xxl i {
   font-size: 25px;
 }
-@media (max-width: 768px) {
+@media (max-width: 859px) {
   nav .nav-item {
     display: none;
   }
@@ -73,29 +76,42 @@ nav .nav-item .login-remind p:hover {
   background-color: #e5e7eb;
 }
 nav .burger-link {
-  background-color: black;
+  background-color: transparent;
   display: none;
-  position: relative;
 }
-@media (max-width: 768px) {
+@media (max-width: 859px) {
   nav .burger-link {
     display: block;
     width: 100px;
     height: 100px;
   }
 }
-nav .burger-link:focus > .nav {
-  display: block;
+nav .burger-link .burger-box {
   width: 100%;
-  height: 100px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+nav .burger-link .burger-box #burger:checked ~ .nav {
+  display: flex;
 }
 nav .burger-link .nav {
   position: absolute;
   top: 100px;
-  z-index: 99999;
-  background-color: black;
+  left: 0;
+  z-index: 2;
+  background-color: #e5e7eb;
   width: 100%;
-  height: 100%;
+  height: auto;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+nav .burger-link .nav .nav-item2 {
+  width: 100%;
 }
 nav .burger-link .nav .nav-item2 .user-icon {
   position: relative;
@@ -109,6 +125,7 @@ nav .burger-link .nav .nav-item2 .login-remind {
   display: none;
   overflow: hidden;
   position: absolute;
+  left: 50%;
   width: 150px;
   height: 0px;
   z-index: 2;
@@ -117,7 +134,7 @@ nav .burger-link .nav .nav-item2 .login-remind {
   font-size: 0.9rem;
   align-items: center;
   justify-content: center;
-  transform: translate(-70%, 0);
+  transform: translate(-50%, 0);
   padding-top: 15px;
 }
 nav .burger-link .nav .nav-item2 .login-remind p {
@@ -149,14 +166,15 @@ main .banner .list-detail #section1 h3 {
 }
 main .banner .list-detail #section2 .content {
   background-color: white;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 15px;
 }
 main .banner .list-detail #section2 .content .article-box {
   background-color: white;
   width: 100%;
-  height: 300px;
   display: flex;
   flex-direction: column;
-  outline: 2px solid seagreen;
 }
 main .banner .list-detail #section2 .content .article-box .article-top {
   width: 100%;
@@ -166,52 +184,58 @@ main .banner .list-detail #section2 .content .article-box .article-top {
 main .banner .list-detail #section2 .content .article-box .article-top .article-top-left {
   display: flex;
 }
-main .banner .list-detail #section2 .content .article-box .article-top .article-top-left .article-title {
-  background-color: white;
-  border-top: 3px solid salmon;
-  border-left: 3px solid salmon;
-  border-bottom: 3px solid salmon;
+main .banner .list-detail #section2 .content .article-box .article-top .article-top-left .article-title-box {
+  border: 3px solid seagreen;
+  border-bottom: 0px;
+  padding: 5px 0 0 5px;
 }
-main .banner .list-detail #section2 .content .article-box .article-top .article-top-left .title-box {
+main .banner .list-detail #section2 .content .article-box .article-top .article-top-left .article-title-box .article-title {
+  background-color: white;
+  width: 100%;
+}
+main .banner .list-detail #section2 .content .article-box .article-top .article-top-left .article-title-box .title-box {
   width: 250px;
-  border-top: 3px solid salmon;
-  border-right: 3px solid salmon;
-  border-bottom: 3px solid salmon;
 }
-main .banner .list-detail #section2 .content .article-box .article-top .article-top-left .article-author {
+main .banner .list-detail #section2 .content .article-box .article-top .article-top-left .article-author-box {
+  display: flex;
+  border-top: 3px solid seagreen;
+  border-right: 3px solid seagreen;
+  flex-direction: column;
+  padding: 5px 0 0 5px;
+}
+main .banner .list-detail #section2 .content .article-box .article-top .article-top-left .article-author-box .article-author {
   background-color: white;
-  border-top: 3px solid aquamarine;
-  border-left: 3px solid aquamarine;
-  border-bottom: 3px solid aquamarine;
 }
-main .banner .list-detail #section2 .content .article-box .article-top .article-top-left .name-box {
+main .banner .list-detail #section2 .content .article-box .article-top .article-top-left .article-author-box .name-box {
   width: 100px;
-  border-top: 3px solid aquamarine;
-  border-right: 3px solid aquamarine;
-  border-bottom: 3px solid aquamarine;
 }
 main .banner .list-detail #section2 .content .article-box .article-top .article-top-right {
   display: flex;
+  border: 3px solid seagreen;
+  border-bottom: 0px;
+  padding: 5px 0 0 5px;
 }
 main .banner .list-detail #section2 .content .article-box .article-top .article-top-right .article-time {
   background-color: white;
-  border-top: 3px solid aquamarine;
-  border-left: 3px solid aquamarine;
-  border-bottom: 3px solid aquamarine;
 }
 main .banner .list-detail #section2 .content .article-box .article-top .article-top-right .time-box {
   width: 150px;
-  border-top: 3px solid aquamarine;
-  border-right: 3px solid aquamarine;
-  border-bottom: 3px solid aquamarine;
 }
 main .banner .list-detail #section2 .content .article-box .article-bot {
   width: 100%;
 }
 main .banner .list-detail #section2 .content .article-box .article-bot .article-content {
-  height: 100px;
+  padding: 5px 0 0 5px;
+  min-height: 100px;
   background-color: white;
-  border: 3px solid aquamarine;
+  border: 3px solid seagreen;
+}
+main .banner .list-detail #section2 .content .function-box {
+  display: flex;
+  justify-content: flex-end;
+}
+main .banner .list-detail #section2 .content .function-box a {
+  margin-left: 10px;
 }
 main .banner .list-detail #section3 .content {
   background-color: white;
@@ -219,14 +243,47 @@ main .banner .list-detail #section3 .content {
 main .banner .list-detail #section3 .content .form-box {
   background-color: white;
   width: 100%;
-  height: 300px;
   display: flex;
   flex-direction: column;
 }
 main .banner .list-detail #section3 .content .form-box .form-top {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  padding: 30px 30px 0px 30px;
+}
+main .banner .list-detail #section3 .content .form-box .form-top .form-title {
+  margin-bottom: 30px;
+}
+main .banner .list-detail #section3 .content .form-box .form-top .form-name {
+  margin-bottom: 30px;
+}
+main .banner .list-detail #section3 .content .form-box .form-top span {
+  margin-right: 25px;
+}
+main .banner .list-detail #section3 .content .form-box .form-bot {
+  display: flex;
+  padding: 0px 30px 30px 30px;
+}
+main .banner .list-detail #section3 .content .form-box .form-bot .form-content textarea {
+  resize: none;
+}
+main .banner .list-detail #section3 .button-box {
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+main .banner .list-detail #section3 .button-box button {
+  border-radius: 30px;
+  border: 1px solid steelblue;
+  background-color: steelblue;
+  color: #fff;
+  width: 100px;
+}
+main .banner .list-detail #section3 .button-box button:hover {
+  background-color: blueviolet;
+  border: 1px solid blueviolet;
 }
 
 footer .other-info1 {

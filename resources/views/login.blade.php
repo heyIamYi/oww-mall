@@ -50,15 +50,18 @@
                     </div>
                     <!-- 登入表單 -->
                     <div class="login-form d-flex">
-                        <form>
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
                             <div class="mb-3">
-                                <input type="email" class="form-control email-adress" id="exampleInputEmail1"
+                                <input type="email" name="email" class="form-control email-adress" id="exampleInputEmail1"
                                     aria-describedby="emailHelp" placeholder="E-mail">
                             </div>
                             <div class="mb-3">
-                                <input type="password" class="form-control password" id="exampleInputPassword1" placeholder="Password">
+                                <input type="password" name="password" class="form-control password" id="exampleInputPassword1" placeholder="Password">
                             </div>
                             <div id="emailHelp" class="form-text">
+                                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
+                                <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                                 Forgot your password?
                             </div>
                             <button type="submit" class="btn btn-primary">SIGN IN</button>
