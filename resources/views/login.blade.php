@@ -47,6 +47,7 @@
                     <!-- 使用其他方式登入 -->
                     <div class="box-bot d-flex">
                         <p>or use email your account </p>
+                        <p>or use email your account </p>
                     </div>
                     <!-- 登入表單 -->
                     <div class="login-form d-flex">

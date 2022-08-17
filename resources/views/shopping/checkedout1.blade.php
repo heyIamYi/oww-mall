@@ -1,16 +1,16 @@
     @extends('template.template')
 
 
-@section('pageTitle')訂單第一頁@endsection
+    @section('pageTitle')
+        訂單第一頁
+    @endsection
 
 
-@section('css')
-    <link rel="stylesheet" href="./css/checkedout1.css">
+    @section('css')
+        <link rel="stylesheet" href="./css/checkedout1.css">
+    @endsection
 
-@endsection
-
-@section('main')
-
+    @section('main')
         <div class="banner .container-fluid">
             <form class="list-detail" method="post" action="/checkedout2">
                 @csrf
@@ -76,37 +76,41 @@
                     <div class="order-list">
                         {{-- {{$ShoppingCart->product}} --}}
                         @foreach ($ShoppingCart as $gogo)
-                        <div id="aaa{{$gogo->id}}">
-                        <div class="r-button"><button type="button" onclick="deleteList({{$gogo->id}})"  class="btn btn-danger">刪除</button></div>
-                        <div class="first-item d-flex justify-content-between">
-                            <!-- 訂單內容左方區塊 -->
-                            <div class="l-box d-flex">
-                                <!-- 商品照 -->
-                                <div class="goods-img">
-                                    <img src="{{$gogo->product->img}}" alt="Goods-Photo">
-                                </div>
+                            <div id="aaa{{ $gogo->id }}">
+                                <div class="r-button"><button type="button" onclick="deleteList({{ $gogo->id }})"
+                                        class="btn btn-danger">刪除</button></div>
+                                <div class="first-item d-flex justify-content-between">
+                                    <!-- 訂單內容左方區塊 -->
+                                    <div class="l-box d-flex">
+                                        <!-- 商品照 -->
+                                        <div class="goods-img">
+                                            <img src="{{ $gogo->product->img }}" alt="Goods-Photo">
+                                        </div>
 
 
-                                <!-- 商品名稱&訂單編號 -->
-                                <div class="goods-info d-flex justify-content-center align-items-start">
-                                    <div class="name">{{$gogo->product->name}}</div>
+                                        <!-- 商品名稱&訂單編號 -->
+                                        <div class="goods-info d-flex justify-content-center align-items-start">
+                                            <div class="name">{{ $gogo->product->name }}</div>
+                                        </div>
+                                    </div>
+                                    <!-- 訂單內容右方區塊 -->
+                                    <div class="r-box d-flex align-items-center">
+                                        <!-- 商品數量與商品價格 -->
+                                        <div id="goods-quantity" class="quantity">
+                                            <i id="minus" class="fa-solid fa-minus"></i>
+                                            <input id="qty" class="qty" style="text-align:center;" type="text"
+                                                name="qty[]" value="{{ $gogo->quantity }}">
+                                            <i id="plus" class="fa-solid fa-plus"></i>
+                                        </div>
+                                        <div class="sum-price"
+                                        data-product_qty="{{$gogo->product->quantity}}"
+                                        data-product_price='{{$gogo->product->product_price}}'
+                                        >$　{{ $gogo->quantity * $gogo->product->price }}</div>
+                                    </div>
+                                    {{-- 刪除按鈕 --}}
                                 </div>
+
                             </div>
-                            <!-- 訂單內容右方區塊 -->
-                            <div class="r-box d-flex align-items-center">
-                                <!-- 商品數量與商品價格 -->
-                                <div id="goods-quantity" class="quantity">
-                                    <i id="minus" class="fa-solid fa-minus"></i>
-                                    <input id="qty" style="text-align:center;" type="text" name="qty[]" value="{{$gogo->quantity}}">
-                                    <i id="plus" class="fa-solid fa-plus"></i>
-                                </div>
-
-                                <div class="sum-price">$　{{$gogo->quantity * $gogo->product->price}}</div>
-                            </div>
-                            {{-- 刪除按鈕 --}}
-                        </div>
-
-                    </div>
                         @endforeach
 
                     </div>
@@ -120,7 +124,7 @@
                                 <h5>數量:</h5>
                                 <span>
 
-                                    {{count($ShoppingCart)}}
+                                    {{ count($ShoppingCart) }}
 
                                 </span>
                             </div>
@@ -128,7 +132,7 @@
                                 <h5>小計:</h5>
                                 <span>
 
-                                    {{$total_price}}
+                                    {{ $total_price }}
 
                                 </span>
                             </div>
@@ -139,7 +143,7 @@
                             <div class="total d-flex justify-content-between">
                                 <h5>總計:</h5>
                                 <span>
-                                    {{$total_price + 100}}
+                                    {{ $total_price + 100 }}
                                 </span>
                             </div>
                         </div>
@@ -153,40 +157,69 @@
                                     class="fa-solid fa-arrow-left"></i>返回購物</a>
 
                         </div>
-                        <div class="r-button"><button type="submit" class="btn btn-primary" >下一步</button></div>
+                        <div class="r-button"><button type="submit" class="btn btn-primary">下一步</button></div>
                     </div>
                 </div>
             </form>
-@endsection
+        @endsection
 
-@section('Js')
+        @section('Js')
+            {{-- 計算 --}}
+            <script>
+                const plus = document.querySelectorAll('.fa-plus');
+                const minus = document.querySelectorAll('.fa-minus');
+                const qty = document.querySelectorAll('.qty');
+                const addproduct = document.querySelectorAll('.sum-price');
+                const subtotal = document.querySelector('.subtotal');
+                const total = document.querySelector('.total');
+                console.log(addproduct[1].dataset.product_qty);
+                // console.log(addproduct);
+                for (let i = 0; i < plus.length; i++) {
+                    plus[i].onclick = function() {
+                        if (addproduct[i].dataset.product_qty > qty[i].value) {
+                            qty[i].value = parseInt(qty[i].value) + 1;
+                        }
+                        addproduct[i].innerHTML = parseInt(qty[i].value) * parseInt(addproduct[i].dataset.product_price)
+                        price_count()
+                    }
+                    minus[i].onclick = function() {
+                        if (qty[i].value >= 2) {
+                            qty[i].value = parseInt(qty[i].value) - 1;
+                        }
+                        addproduct[i].innerHTML = parseInt(qty[i].value) * parseInt(addproduct[i].dataset.product_price)
+                        price_count()
+                    }
 
-<script>
+                    function price_count() {
+                        var sum = 0;
+                        for (let j = 0; j < addproduct.length; j++) {
+                            sum += parseInt(qty[j].value) * parseInt(addproduct[j].dataset.product_price)
+                        }
+                        console.log(sum);
+                        subtotal.innerHTML = sum;
+                        total.innerHTML = sum + 100;
+                    }
+                }
+            </script>
 
-const a = document.querySelector('#a');
-console.log(a);
+            <script>
+                const a = document.querySelector('#a');
+                // console.log(a);
+                function deleteList(id) {
+                    let formData = new FormData();
+                    formData.append('_method', 'post');
+                    formData.append('_token', '{{ csrf_token() }}');
 
+                    fetch('/deleteList/' + id, {
+                            method: 'POST',
+                            body: formData
+                        })
 
+                        .then(function(response) {
+                            let element = document.querySelector('#aaa' + id)
+                            element.parentNode.removeChild(element);
+                        })
 
-function deleteList(id){
-
-let formData = new FormData();
-formData.append('_method','post');
-formData.append('_token','{{csrf_token()}}');
-
-fetch('/deleteList/'+id,{
-    method:'POST',
-    body: formData
-})
-
-.then(function(response){
-    let element = document.querySelector('#aaa'+id)
-        element.parentNode.removeChild(element);
-})
-
-}
-
-
-</script>
-
-@endsection
+                }
+            </script>
+        @endsection

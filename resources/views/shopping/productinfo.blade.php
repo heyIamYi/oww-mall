@@ -137,6 +137,20 @@
     }
 </style>
 
+{{-- 其他css --}}
+<style>
+    .buy button a{
+        text-decoration-line: none;
+        color: black;
+    }
+    .buy button a:visited{
+        text-decoration-line: none;
+        color: black;
+    }
+
+
+</style>
+
 @endsection
 
 @section('main')
@@ -258,7 +272,7 @@
                     </div>
                     <div class="product-button">
                         <div class="add-shoppingCart" id="add_product" ><button >加入購物車</button></div>
-                        <div class="buy"><button>直接結帳</button></div>
+                        <div class="buy"><button><a href="/checkedout1">直接結帳</a></button></div>
                     </div>
                 </div>
 

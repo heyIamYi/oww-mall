@@ -136,6 +136,10 @@ class ShoppingCarController extends Controller
             $total_price += $value->quantity * $value->product->price;
         }
 
+        session ([
+            'total_price' => $total_price,
+        ]);
+
         return view(
             'shopping.checkedout1',
             compact('product', 'ShoppingCart', 'total_price')
@@ -146,9 +150,11 @@ class ShoppingCarController extends Controller
     {
         session(['amount' => $request->qty]);
 
-        // dd($request->all());
+        $total_price = session()->get('total_price');
+        $total_qty = session()->get('amount');
+        dd($total_qty);
 
-        return view('shopping.checkedout2');
+        return view('shopping.checkedout2',compact('total_price','total_qty'));
     }
 
     public function checkedout3(Request $request)
