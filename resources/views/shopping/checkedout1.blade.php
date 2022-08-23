@@ -169,31 +169,31 @@
                 const plus = document.querySelectorAll('.fa-plus');
                 const minus = document.querySelectorAll('.fa-minus');
                 const qty = document.querySelectorAll('.qty');
-                const addproduct = document.querySelectorAll('.sum-price');
+                const sumprice = document.querySelectorAll('.sum-price');
                 const subtotal = document.querySelector('.subtotal');
                 const total = document.querySelector('.total');
-                console.log(addproduct[1].dataset.product_qty);
-                // console.log(addproduct);
+                console.log(sumprice[1].dataset.product_qty);
+                // console.log(sumprice);
                 for (let i = 0; i < plus.length; i++) {
                     plus[i].onclick = function() {
-                        if (addproduct[i].dataset.product_qty > qty[i].value) {
+                        if (qty[i].dataset.product_qty > qty[i].value) {
                             qty[i].value = parseInt(qty[i].value) + 1;
                         }
-                        addproduct[i].innerHTML = parseInt(qty[i].value) * parseInt(addproduct[i].dataset.product_price)
+                        qty[i].innerHTML = parseInt(qty[i].value) * parseInt(qty[i].dataset.product_price)
                         price_count()
                     }
                     minus[i].onclick = function() {
                         if (qty[i].value >= 2) {
                             qty[i].value = parseInt(qty[i].value) - 1;
                         }
-                        addproduct[i].innerHTML = parseInt(qty[i].value) * parseInt(addproduct[i].dataset.product_price)
+                        sumprice[i].innerHTML = parseInt(qty[i].value) * parseInt(sumprice[i].dataset.product_price)
                         price_count()
                     }
 
                     function price_count() {
                         var sum = 0;
-                        for (let j = 0; j < addproduct.length; j++) {
-                            sum += parseInt(qty[j].value) * parseInt(addproduct[j].dataset.product_price)
+                        for (let j = 0; j < sumprice.length; j++) {
+                            sum += parseInt(qty[j].value) * parseInt(sumprice[j].dataset.product_price)
                         }
                         console.log(sum);
                         subtotal.innerHTML = sum;
