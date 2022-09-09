@@ -152,7 +152,7 @@ class ShoppingCarController extends Controller
 
         $total_price = session()->get('total_price');
         $total_qty = session()->get('amount');
-        dd($total_qty);
+        // dd($total_qty);
 
         return view('shopping.checkedout2',compact('total_price','total_qty'));
     }

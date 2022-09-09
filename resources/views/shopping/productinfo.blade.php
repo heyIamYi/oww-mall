@@ -272,7 +272,7 @@
                     </div>
                     <div class="product-button">
                         <div class="add-shoppingCart" id="add_product" ><button >加入購物車</button></div>
-                        <div class="buy"><button><a href="/checkedout1">直接結帳</a></button></div>
+                        <div class="buy"><button><a href="/checkedout1">前往付款</a></button></div>
                     </div>
                 </div>
 

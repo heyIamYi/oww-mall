@@ -60,7 +60,7 @@
 
     @section('main')
 
-        <!-- swiper內容 -->
+        {{-- <!-- swiper內容 -->
         <div id="section1" class="mb-2">
             <div class="swiper mySwiper container-fluid ">
                 <div class="swiper-wrapper">
@@ -71,7 +71,7 @@
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-pagination"></div>
             </div>
-        </div>
+        </div> --}}
         <!-- 商品頁面卡 -->
         <div id="section2" class="container-fluid d-flex justify-content-center">
             <div class="goods mt-5 pt-5">
@@ -79,11 +79,10 @@
                 <!-- 上半部 -->
                 <div class="goods-top">
                     <div class="goods-title text-center">
-                        <h3>Raw Denim Heirloom Man Braid</h3>
+                        <h3>最新消息顯示</h3>
                     </div>
                     <div class="goods-content text-center">
-                        <p>Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy.
-                            Gastropub indxgo juice poutine, ramps microdosing banh mi pug.</p>
+                        <p>此處將更新網站最新消息</p>
 
                     </div>
                 </div>
@@ -124,16 +123,16 @@
                         </div>
                     </div>
                     <!-- 商品頁面按鈕 -->
-                    <div class="good-button d-flex justify-content-center">
+                    {{-- <div class="good-button d-flex justify-content-center">
                         <div class="d-grid gap-2 d-md-block ">
                             <button class="btn btn-primary " type="button">Button</button>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
         <!-- 商品展示照區塊 -->
-        <div id="section3" class="goods-photo container-fluid d-flex">
+        {{-- <div id="section3" class="goods-photo container-fluid d-flex">
             <!-- 上半部展示照標題與副標題 -->
             <div class="goods-photo-top d-flex">
                 <div class="goods-photo-title">
@@ -162,9 +161,9 @@
 
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- 價格展示區塊 -->
-        <div id="section4" class="price-box container-xxl">
+        {{-- <div id="section4" class="price-box container-xxl">
             <!-- 上半部標題 -->
             <div class="price-top">
                 <div class="price-box-tittle">
@@ -224,9 +223,9 @@
                     <button class="btn btn-primary" type="submit">Button</button>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- 商品卡展示2 -->
-        <div id="section5" class="goods-photo2 container-fluid p-0">
+        {{-- <div id="section5" class="goods-photo2 container-fluid p-0">
             <!-- 商品展示卡2 上半部 -->
             <div class="goods-photo2-top d-flex">
                 <div class="goods-photo2-title">
@@ -283,9 +282,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- 特殊圖表 -->
-        <div id="section6" class="unknown  container-xxl d-flex justify-content-center align-items-center">
+        {{-- <div id="section6" class="unknown  container-xxl d-flex justify-content-center align-items-center">
             <!-- 內容物 -->
             <div class="unknown-content ">
                 <!-- 第一張卡 -->
@@ -346,9 +345,9 @@
                     <button class="btn btn-primary" type="button">Button</button>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- 大商品照與下單 -->
-        <div id="section7" class="big-goods-photo flex-column container-xxl flex-md-row">
+        {{-- <div id="section7" class="big-goods-photo flex-column container-xxl flex-md-row">
 
 
             @foreach ($bigstore as $bs)
@@ -430,7 +429,7 @@
             @endforeach
 
 
-        </div>
+        </div> --}}
         <!-- 小商品陳列照 -->
         <div id="section8" class="little-goods-photo d-flex">
             <div class="box1 d-flex">
@@ -517,7 +516,7 @@
             </div>
         </div>
         <!-- 地圖與回饋 -->
-        <div id="section9" class="map container-fluid">
+        {{-- <div id="section9" class="map container-fluid">
             <!-- 地圖 -->
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d1872701.4985836851!2d120.6402133!3d23.546162!3m2!1i1024!2i768!4f13.1!5e0!3m2!1szh-TW!2stw!4v1649395651609!5m2!1szh-TW!2stw"
@@ -546,7 +545,7 @@
                 <button type="button" class="btn btn-primary" data-bs-toggle="button" autocomplete="off">button</button>
                 <p class="bottom-text">Chicharrones blog helvetica normcore iceland tousled brook viral artisan.</p>
             </div>
-        </div>
+        </div> --}}
 
 @endsection
 

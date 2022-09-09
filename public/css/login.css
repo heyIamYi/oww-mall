@@ -159,7 +159,7 @@ main .banner #section2 .right-box .login-form form .mb-3 {
 main .banner #section2 .right-box .login-form form .mb-3 input {
   height: 60px;
   border-radius: 0px;
-  background-color: black;
+  background-color: #fafafa;
   border: 0;
   width: 60%;
 }
@@ -169,7 +169,7 @@ main .banner #section2 .right-box .login-form form .mb-3 input {
   }
 }
 main .banner #section2 .right-box .login-form form .mb-3 .form-control:focus {
-  box-shadow: 0 0 0 0.25rem white;
+  box-shadow: 0 0 0 0.25rem #fafafa;
 }
 main .banner #section2 .right-box .login-form form .form-text {
   width: 100%;

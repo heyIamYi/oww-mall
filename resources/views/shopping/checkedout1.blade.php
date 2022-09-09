@@ -76,9 +76,8 @@
                     <div class="order-list">
                         {{-- {{$ShoppingCart->product}} --}}
                         @foreach ($ShoppingCart as $gogo)
-                            <div id="aaa{{ $gogo->id }}">
-                                <div class="r-button"><button type="button" onclick="deleteList({{ $gogo->id }})"
-                                        class="btn btn-danger">刪除</button></div>
+                            <div id="list-info{{ $gogo->id }}">
+
                                 <div class="first-item d-flex justify-content-between">
                                     <!-- 訂單內容左方區塊 -->
                                     <div class="l-box d-flex">
@@ -91,23 +90,31 @@
                                         <!-- 商品名稱&訂單編號 -->
                                         <div class="goods-info d-flex justify-content-center align-items-start">
                                             <div class="name">{{ $gogo->product->name }}</div>
+                                            <div class="number" data-product_qty="{{ $gogo->product->quantity }}"
+                                                data-product_price="{{ $gogo->product->price }}"
+                                                ></div>
+                                            {{-- {!! $gogo->product->price !!} --}}
                                         </div>
                                     </div>
+
                                     <!-- 訂單內容右方區塊 -->
                                     <div class="r-box d-flex align-items-center">
                                         <!-- 商品數量與商品價格 -->
-                                        <div id="goods-quantity" class="quantity">
-                                            <i id="minus" class="fa-solid fa-minus"></i>
-                                            <input id="qty" class="qty" style="text-align:center;" type="text"
-                                                name="qty[]" value="{{ $gogo->quantity }}">
-                                            <i id="plus" class="fa-solid fa-plus"></i>
+                                        <div  class="quantity">
+                                            <i class="fa-solid fa-minus"></i>
+                                            <input class="qty" type="number" min="0" name="qty[]" value="{{ $gogo->quantity }}" readonly>
+                                            <i class="fa-solid fa-plus"></i>
                                         </div>
-                                        <div class="sum-price"
-                                        data-product_qty="{{$gogo->product->quantity}}"
-                                        data-product_price='{{$gogo->product->product_price}}'
-                                        >$　{{ $gogo->quantity * $gogo->product->price }}</div>
+
+
+                                        <div class="sum-price">
+                                            ${{ $gogo->quantity * $gogo->product->price }}</div>
                                     </div>
                                     {{-- 刪除按鈕 --}}
+
+                                    <div class="r-button" style="display: flex; "><button type="button"
+                                            onclick="deleteList({{ $gogo->id }})" class="btn btn-danger">刪除</button>
+                                    </div>
                                 </div>
 
                             </div>
@@ -121,7 +128,7 @@
                         <!-- 價格明細 -->
                         <div class="price-box d-flex">
                             <div class="quantity d-flex justify-content-between">
-                                <h5>數量:</h5>
+                                <h5>訂單筆數:</h5>
                                 <span>
 
                                     {{ count($ShoppingCart) }}
@@ -166,38 +173,38 @@
         @section('Js')
             {{-- 計算 --}}
             <script>
-                const plus = document.querySelectorAll('.fa-plus');
                 const minus = document.querySelectorAll('.fa-minus');
+                const plus = document.querySelectorAll('.fa-plus');
                 const qty = document.querySelectorAll('.qty');
-                const sumprice = document.querySelectorAll('.sum-price');
-                const subtotal = document.querySelector('.subtotal');
-                const total = document.querySelector('.total');
-                console.log(sumprice[1].dataset.product_qty);
-                // console.log(sumprice);
-                for (let i = 0; i < plus.length; i++) {
-                    plus[i].onclick = function() {
-                        if (qty[i].dataset.product_qty > qty[i].value) {
-                            qty[i].value = parseInt(qty[i].value) + 1;
-                        }
-                        qty[i].innerHTML = parseInt(qty[i].value) * parseInt(qty[i].dataset.product_price)
-                        price_count()
-                    }
-                    minus[i].onclick = function() {
-                        if (qty[i].value >= 2) {
+                const sum_price = document.querySelectorAll('.sum-price');
+                const number = document.querySelectorAll('.number')
+
+                console.log(plus, minus, qty);
+                console.log(minus.length);
+
+
+                for (let i = 0; i < minus.length; i++) {
+
+                    // console.log(qty[i].value);
+                    // console.log(parseInt(number[i].dataset.product_price));
+                    // console.log( typeof (parseInt(number[i].dataset.product_price) * (qty[i].value)) );
+
+
+                    minus[i].onclick = function(){
+                        if (parseInt(qty[i].value)> 1) {
                             qty[i].value = parseInt(qty[i].value) - 1;
+                            // console.log(typeof (parseInt(number[i].dataset.product_price) * (qty[i].value)));
+
+                            sum_price[i].innerHTML = '$' + (parseInt(number[i].dataset.product_price) * parseInt(qty[i].value))
+
                         }
-                        sumprice[i].innerHTML = parseInt(qty[i].value) * parseInt(sumprice[i].dataset.product_price)
-                        price_count()
                     }
 
-                    function price_count() {
-                        var sum = 0;
-                        for (let j = 0; j < sumprice.length; j++) {
-                            sum += parseInt(qty[j].value) * parseInt(sumprice[j].dataset.product_price)
+                    plus[i].onclick = function(){
+                        if (parseInt(qty[i].value) < parseInt(number[i].dataset.product_qty)) {
+                            qty[i].value = parseInt(qty[i].value) + 1;
+                            sum_price[i].innerHTML = '$' + (parseInt(number[i].dataset.product_price) * parseInt(qty[i].value))
                         }
-                        console.log(sum);
-                        subtotal.innerHTML = sum;
-                        total.innerHTML = sum + 100;
                     }
                 }
             </script>
@@ -216,7 +223,7 @@
                         })
 
                         .then(function(response) {
-                            let element = document.querySelector('#aaa' + id)
+                            let element = document.querySelector('#list-info' + id)
                             element.parentNode.removeChild(element);
                         })
 
