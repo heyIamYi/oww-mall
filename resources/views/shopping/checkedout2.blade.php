@@ -113,8 +113,8 @@
                         <!-- 價格明細 -->
                         <div class="price-box d-flex">
                             <div class="quantity d-flex justify-content-between">
-                                <h5>數量:</h5>
-                                <span>{{$total_qty}}</span>
+                                <h5>訂單筆數:</h5>
+                                <span>{{ count($total_qty) }}</span>
                             </div>
                             <div class="subtotal d-flex justify-content-between">
                                 <h5>小計:</h5>
@@ -126,7 +126,7 @@
                             </div>
                             <div class="total d-flex justify-content-between">
                                 <h5>總計:</h5>
-                                <span>{{$total_price - 100}}</span>
+                                <span>{{$total_price + 100}}</span>
                             </div>
                         </div>
                     </div>

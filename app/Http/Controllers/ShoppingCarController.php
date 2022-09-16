@@ -140,6 +140,8 @@ class ShoppingCarController extends Controller
             'total_price' => $total_price,
         ]);
 
+        // dd($total_price,$total_price);
+
         return view(
             'shopping.checkedout1',
             compact('product', 'ShoppingCart', 'total_price')
@@ -148,20 +150,45 @@ class ShoppingCarController extends Controller
 
     public function checkedout2(Request $request)
     {
+
+        // dd($request->qty,'GGGGG');
         session(['amount' => $request->qty]);
 
-        $total_price = session()->get('total_price');
         $total_qty = session()->get('amount');
-        // dd($total_qty);
+
+        $ShoppingCartUser = Auth::id();
+
+        $merch = ShoppingCart::where('user_id', '=', $ShoppingCartUser)->get();
+        $total_price = 0;
+
+        // dd($merch);
+
+        foreach ($merch as $key => $goods) {
+            // dd($merch,$goods);
+            $total_price +=
+            $goods->product->price * session()->get('amount')[$key];
+        }
+
+
+        session ([
+            'total_price' => $total_price,
+        ]);
+
+
+
+        // dd($total_price);
 
         return view('shopping.checkedout2',compact('total_price','total_qty'));
     }
 
     public function checkedout3(Request $request)
     {
+
+        $total_qty = session()->get('amount');
+        $total_price = session()->get('total_price');
         session(['pay' => $request->pay, 'deliver' => $request->deliver]);
 
-        return view('shopping.checkedout3');
+        return view('shopping.checkedout3',compact('total_price','total_qty'));
     }
 
     public function checkedout4(Request $request)
@@ -205,6 +232,9 @@ class ShoppingCarController extends Controller
             'user_id' => Auth::id(),
         ]);
 
+        // dd($order);
+
+
         if (session()->get('deliver') == '1') {
             $order->address =
             $request->code . $request->city . $request->address;
@@ -235,13 +265,17 @@ class ShoppingCarController extends Controller
         // dd($order);
         $ShoppingCart = ShoppingCart::where('user_id', Auth::user()->id)->get();
         // dd($order);
+
+        $total_qty = session()->get('amount');
+        $total_price = session()->get('total_price');
+
         $Dashboard = '訂單成交';
 
         ShoppingCart::where('user_id', Auth::user()->id)->delete();
 
         return view(
             'shopping.checkedout4',
-            compact('order', 'Dashboard', 'ShoppingCart')
+            compact('order', 'Dashboard', 'ShoppingCart', 'total_price')
         );
     }
 
@@ -253,10 +287,14 @@ class ShoppingCarController extends Controller
     public function deleteList(Request $request, $id)
     {
 
+        $total_qty = session()->get('amount');
+        $total_price = session()->get('total_price');
+
+
         $gg = ShoppingCart::find($id)->delete();
         // $gg->save();
         // dd($request->all(), $id, $gg);
-        return redirect('shopping.checkedout1');
+        return redirect('shopping.checkedout1',compact('total_price','total_qty'));
     }
 
 }

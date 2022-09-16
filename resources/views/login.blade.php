@@ -66,6 +66,7 @@
                                 Forgot your password?
                             </div>
                             <button type="submit" class="btn btn-primary">SIGN IN</button>
+                           <a href="/register"><button type="button" type="submit" class="btn btn-primary">SIGN UP</button></a>
                         </form>
                     </div>
                 </div>

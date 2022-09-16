@@ -113,7 +113,7 @@
                                     {{-- 刪除按鈕 --}}
 
                                     <div class="r-button" style="display: flex; "><button type="button"
-                                            onclick="deleteList({{ $gogo->id }})" class="btn btn-danger">刪除</button>
+                                            onclick="deleteList('{{ $gogo->id }}')" class="btn btn-danger">刪除</button>
                                     </div>
                                 </div>
 
@@ -160,7 +160,7 @@
                 <div id="section4">
                     <!-- 功能按鈕 -->
                     <div class="button-box d-flex justify-content-between">
-                        <div class="l-button"><a class="btn btn-primary" href="#" role="button"><i
+                        <div class="l-button"><a class="btn btn-primary" href="/" role="button"><i
                                     class="fa-solid fa-arrow-left"></i>返回購物</a>
 
                         </div>
@@ -177,10 +177,15 @@
                 const plus = document.querySelectorAll('.fa-plus');
                 const qty = document.querySelectorAll('.qty');
                 const sum_price = document.querySelectorAll('.sum-price');
-                const number = document.querySelectorAll('.number')
+                const number = document.querySelectorAll('.number');
 
-                console.log(plus, minus, qty);
-                console.log(minus.length);
+                const subtotal = document.querySelector('.subtotal span');
+                // console.log(subtotal);
+                const total = document.querySelector('.total span')
+                // console.log(total);
+
+                // console.log(plus, minus, qty);
+                // console.log(minus.length);
 
 
                 for (let i = 0; i < minus.length; i++) {
@@ -198,6 +203,10 @@
                             sum_price[i].innerHTML = '$' + (parseInt(number[i].dataset.product_price) * parseInt(qty[i].value))
 
                         }
+
+                        get_total();
+
+
                     }
 
                     plus[i].onclick = function(){
@@ -205,6 +214,19 @@
                             qty[i].value = parseInt(qty[i].value) + 1;
                             sum_price[i].innerHTML = '$' + (parseInt(number[i].dataset.product_price) * parseInt(qty[i].value))
                         }
+
+                        get_total();
+                    }
+
+
+                    function get_total(){
+                        var sum = 0;
+                        for (let j = 0; j < minus.length; j++) {
+                            sum += (parseInt(number[j].dataset.product_price) * parseInt(qty[j].value))
+                        }
+
+                        subtotal.innerHTML = '$' + sum
+                        total.innerHTML = '$' + (sum + 100)
                     }
                 }
             </script>
@@ -214,8 +236,10 @@
                 // console.log(a);
                 function deleteList(id) {
                     let formData = new FormData();
+
+
                     formData.append('_method', 'post');
-                    formData.append('_token', '{{ csrf_token() }}');
+                    formData.append('_token', '{!! csrf_token() !!}');
 
                     fetch('/deleteList/' + id, {
                             method: 'POST',
@@ -226,6 +250,7 @@
                             let element = document.querySelector('#list-info' + id)
                             element.parentNode.removeChild(element);
                         })
+
 
                 }
             </script>

@@ -80,7 +80,7 @@
                                         <h5>姓名</h5>
                                     </label>
                                     <input type="text" class="form-control" id="name"
-                                       name="name"  placeholder="千夜未來">
+                                       name="name"  placeholder="請在此輸入姓名">
                                 </div>
                             </div>
                             <!-- 電話 -->
@@ -90,7 +90,7 @@
                                         <h5>電話</h5>
                                     </label>
                                     <input type="text" class="form-control" id="phone" name="phone"
-                                        placeholder="0922-520-222">
+                                        placeholder="範例09xx-xxx-xxx">
                                 </div>
                             </div>
                             <!-- 電子郵件 -->
@@ -100,7 +100,7 @@
                                         <h5>E-mail</h5>
                                     </label>
                                     <input type="text" class="form-control" id="email" name="email"
-                                        placeholder="kittenIsCute@gmail.com">
+                                        placeholder="ooxx@gmail.com">
                                 </div>
                             </div>
                             <!--戶籍資料 -->
@@ -129,20 +129,20 @@
                         <!-- 價格明細 -->
                         <div class="price-box d-flex">
                             <div class="quantity d-flex justify-content-between">
-                                <h5>數量:</h5>
-                                <span>3</span>
+                                <h5>訂單筆數:</h5>
+                                <span>{{ count($total_qty) }}</span>
                             </div>
                             <div class="subtotal d-flex justify-content-between">
                                 <h5>小計:</h5>
-                                <span>520.22</span>
+                                <span>{{$total_price}}</span>
                             </div>
                             <div class="shipping-fee d-flex justify-content-between">
                                 <h5>運費:</h5>
-                                <span>520.22</span>
+                                <span>$ 100</span>
                             </div>
                             <div class="total d-flex justify-content-between">
                                 <h5>總計:</h5>
-                                <span>520.22</span>
+                                <span>{{$total_price + 100}}</span>
                             </div>
                         </div>
                     </div>

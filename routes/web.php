@@ -81,7 +81,7 @@ Route::prefix('/comment')->group(function () {
 //群組化
 
 Route::prefix('/account')
-    ->middleware(['auth', 'power'])
+    ->middleware(['auth', ])
     ->group(function () {
         Route::get('/', [AccountController::class, 'index']);
         Route::get('/create', [AccountController::class, 'create']);
@@ -95,7 +95,7 @@ Route::prefix('/account')
 //群組化
 
 Route::prefix('/banner')
-    ->middleware(['auth', 'power'])
+    ->middleware(['auth'])
     ->group(function () {
         Route::get('/', [BannerController::class, 'index']);
         Route::get('/create', [BannerController::class, 'create']);
@@ -109,7 +109,7 @@ Route::prefix('/banner')
 //群組化
 
 Route::prefix('/product')
-    ->middleware(['auth', 'power'])
+    ->middleware(['auth'])
     ->group(function () {
         Route::get('/', [ProductController::class, 'index']);
         Route::get('/create', [ProductController::class, 'create']);
