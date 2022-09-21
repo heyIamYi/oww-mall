@@ -136,7 +136,7 @@ class ShoppingCarController extends Controller
             $total_price += $value->quantity * $value->product->price;
         }
 
-        session ([
+        session([
             'total_price' => $total_price,
         ]);
 
@@ -169,16 +169,13 @@ class ShoppingCarController extends Controller
             $goods->product->price * session()->get('amount')[$key];
         }
 
-
-        session ([
+        session([
             'total_price' => $total_price,
         ]);
 
-
-
         // dd($total_price);
 
-        return view('shopping.checkedout2',compact('total_price','total_qty'));
+        return view('shopping.checkedout2', compact('total_price', 'total_qty'));
     }
 
     public function checkedout3(Request $request)
@@ -188,7 +185,8 @@ class ShoppingCarController extends Controller
         $total_price = session()->get('total_price');
         session(['pay' => $request->pay, 'deliver' => $request->deliver]);
 
-        return view('shopping.checkedout3',compact('total_price','total_qty'));
+
+        return view('shopping.checkedout3', compact('total_price', 'total_qty'));
     }
 
     public function checkedout4(Request $request)
@@ -233,7 +231,6 @@ class ShoppingCarController extends Controller
         ]);
 
         // dd($order);
-
 
         if (session()->get('deliver') == '1') {
             $order->address =
@@ -290,11 +287,10 @@ class ShoppingCarController extends Controller
         $total_qty = session()->get('amount');
         $total_price = session()->get('total_price');
 
-
         $gg = ShoppingCart::find($id)->delete();
         // $gg->save();
         // dd($request->all(), $id, $gg);
-        return redirect('shopping.checkedout1',compact('total_price','total_qty'));
+        return redirect('shopping.checkedout1', compact('total_price', 'total_qty'));
     }
 
 }

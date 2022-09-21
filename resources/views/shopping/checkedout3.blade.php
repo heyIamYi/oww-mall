@@ -11,7 +11,7 @@
 
 @section('main')
         <div class="banner .container-fluid">
-            <form action="/checkedout4" method="post"  class="list-detail">
+            <form action="/creditcard" method="post"  class="list-detail">
                 @csrf
                 <!-- 上方進度條 -->
                 <div id="section1" class="container-xxl">
@@ -154,7 +154,7 @@
                         <div class="l-button"><a class="btn btn-primary" onclick="history.back()" role="button">上一步</a>
 
                         </div>
-                        <div class="r-button"><button type="submit" class="btn btn-primary" href="/checkedout4" role="button">前往付款</ㄖ></div>
+                        <div class="r-button"><button type="submit" class="btn btn-primary" role="button">前往付款</button></div>
                     </div>
                 </div>
             </form>

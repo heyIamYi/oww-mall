@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\OrderManageController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -149,3 +150,7 @@ Route::prefix('/ordermanage')->group(function () {
 // 刪除按鈕
 Route::post('/deleteList/{id}',[ShoppingCarController::class, 'deleteList']);
 
+
+
+// 金流
+Route::post('/creditcard',[OrderController::class,'creditcard']);
