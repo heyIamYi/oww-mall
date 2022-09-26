@@ -33,3 +33,12 @@ Models
 https://github.com/heyIamYi/Full-class-E-commerce/tree/main/app/Models
 
 
+------------------Laravel功能應用------------------
+
+金流串接
+https://github.com/heyIamYi/Full-class-E-commerce/blob/main/app/Http/Controllers/OrderController.php
+
+Session應用 (126行)
+https://github.com/heyIamYi/Full-class-E-commerce/blob/main/app/Http/Controllers/ShoppingCarController.php
+
+
