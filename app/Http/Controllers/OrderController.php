@@ -20,14 +20,22 @@ use App\Models\User;
 class OrderController extends Controller
 {
     //
-    public function creditcard(Request $request)
+    public function creditcard()
     {
 
-
+        //未知東西
         // require __DIR__ . '/../../vendor/autoload.php';
-        dd($request->all());
 
 
+        // 測試
+        // $desc =  UrlService::ecpayUrlEncode('交易描述範例');
+        // dd($desc);
+
+
+        // 先取得購物車資料,在取得購物車的產品資訊
+
+
+        // dd($merch);
 
         $factory = new Factory([
             'hashKey' => '5294y06JbISpM5x9',
@@ -40,9 +48,10 @@ class OrderController extends Controller
             'MerchantTradeNo' => 'Test' . time(),
             'MerchantTradeDate' => date('Y/m/d H:i:s'),
             'PaymentType' => 'aio',
-            'TotalAmount' => 100,
+            'TotalAmount' => $total_price,
             'TradeDesc' => UrlService::ecpayUrlEncode('交易描述範例'),
-            'ItemName' => '範例商品一批 100 TWD x 1',
+            // 用#字號可以換行
+            'ItemName' => '',
             'ChoosePayment' => 'Credit',
             'EncryptType' => 1,
 
