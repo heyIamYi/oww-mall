@@ -154,10 +154,13 @@
                         <div class="l-button"><a class="btn btn-primary" onclick="history.back()" role="button">上一步</a>
 
                         </div>
-                        <div target="_blank" class="r-button"><button type="submit" class="btn btn-primary" role="button">前往付款</button></div>
+                        <div target="_blank" class="r-button"><button target="_blank" type="submit" class="btn btn-primary" role="button">前往付款</button></div>
                     </div>
                 </div>
             </form>
         </div>
+
+@endsection
+@section('js')
 
 @endsection

@@ -191,7 +191,7 @@ class ShoppingCarController extends Controller
 
     public function checkedout4(Request $request)
     {
-        // dd($request->all());
+        dd($request->all());
 
         $Shoppingcartuser = Auth::id();
 
