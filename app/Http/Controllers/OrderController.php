@@ -13,6 +13,13 @@ class OrderController extends Controller
     public function creditcard()
     {
 
+        /*
+        *待更新:
+        *項目1:合併訂單
+        *項目2:回傳網址
+        */
+
+
         //未知東西
         // require __DIR__ . '/../../vendor/autoload.php';
 
