@@ -111,6 +111,8 @@
             // Parameters to pass to OAuth 2.0 endpoint.
             var params = {
                 'client_id': '504504813723-pdjup76aefhscls8ulm2usl5q68io3u6.apps.googleusercontent.com',
+                
+            //此處URL需使用Ngrok.io以及在Google申請的帳號裡面修改相關授權網域.10/04
                 'redirect_uri': 'https://ab93-118-233-192-185.jp.ngrok.io/googleapi',
                 'response_type': 'token',
                 'scope': 'https://www.googleapis.com/auth/drive.metadata.readonly',
