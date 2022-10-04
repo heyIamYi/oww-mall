@@ -128,6 +128,10 @@ class ShoppingCarController extends Controller
         $product = product::get();
 
         $ShoppingCart = ShoppingCart::where('user_id', Auth::user()->id)->get();
+        // dd($ShoppingCart);
+
+
+        // dd($collection);
 
         $total_price = 0;
         $total_qty = 0;
@@ -184,7 +188,6 @@ class ShoppingCarController extends Controller
         $total_qty = session()->get('amount');
         $total_price = session()->get('total_price');
         session(['pay' => $request->pay, 'deliver' => $request->deliver]);
-
 
         return view('shopping.checkedout3', compact('total_price', 'total_qty'));
     }

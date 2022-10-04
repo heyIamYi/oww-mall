@@ -162,3 +162,12 @@ Route::post('/callback',[OrderContorller::class,'']);
 Route::get('/success',[OrderContorller::class,'checkedout4']);
 
 
+
+// 第三方API練習
+/**
+ * API重新導向的部分，似乎不能在這裡使用.
+ */
+Route::get('/googleapi',[PublicApiController::class,'googleapi']);
+
+
+
