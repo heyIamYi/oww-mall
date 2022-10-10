@@ -69,12 +69,12 @@
                 <li class="nav-item2">
                     <a class="nav-link" href="/product">商品管理頁面</a>
                 </li> --}}
-                <li class="nav-item2">
+                {{-- <li class="nav-item2">
                     <a class="nav-link" href="/comment">心情留言板</a>
                 </li>
                 <li class="nav-item2">
                     <a class="nav-link" href="/checkedout1">購物車</i></a>
-                </li>
+                </li> --}}
                 <li class="nav-item2 d-flex align-items-center">
                        <p class="mb-0"><a href="/login">請先登入</a> </p>
                 </li>

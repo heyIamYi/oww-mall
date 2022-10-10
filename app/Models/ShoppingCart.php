@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use App\Models\product;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property integer $id
@@ -35,11 +35,13 @@ class ShoppingCart extends Model
      */
     protected $fillable = ['created_at', 'updated_at', 'product_id', 'user_id', 'quantity'];
 
-    public function product(){
-        return $this->hasOne(product::class,'id','product_id');
+    public function product()
+    {
+        return $this->hasOne(product::class, 'id', 'product_id');
     }
 
-    public function user(){
-        return $this->belongsTo(User::class,'user_id','id');
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 }

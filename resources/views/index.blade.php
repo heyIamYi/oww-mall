@@ -79,12 +79,11 @@
                 <!-- 上半部 -->
                 <div class="goods-top">
                     <div class="goods-title text-center">
-                        <h3>最新消息顯示</h3>
+                        <h3>商品展示</h3>
                     </div>
-                    <div class="goods-content text-center">
+                    {{-- <div class="goods-content text-center">
                         <p>此處將更新網站最新消息</p>
-
-                    </div>
+                    </div> --}}
                 </div>
                 <!-- 下半部 -->
                 <div class="goods-bottom">

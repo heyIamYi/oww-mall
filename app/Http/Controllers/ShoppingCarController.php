@@ -83,7 +83,6 @@ class ShoppingCarController extends Controller
         return redirect('/comment');
     }
 
-
     // 新增至購物車頁面
 
     public function add_cart(Request $request)
@@ -136,7 +135,6 @@ class ShoppingCarController extends Controller
 
         $ShoppingCart = ShoppingCart::where('user_id', Auth::user()->id)->get();
         // dd($ShoppingCart);
-
 
         // dd($collection);
 
@@ -262,7 +260,7 @@ class ShoppingCarController extends Controller
         }
 
         // dd($order);
-        return redirect('/creditcard/'.$order->id);
+        return redirect('/creditcard/' . $order->id);
     }
 
     public function show_order($id)
@@ -281,7 +279,6 @@ class ShoppingCarController extends Controller
             compact('order', 'Dashboard', 'ShoppingCart', 'total_price')
         );
     }
-
 
     public function deleteList(Request $request, $id)
     {

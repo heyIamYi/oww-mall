@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class HomepageController extends Controller
@@ -32,7 +31,6 @@ class HomepageController extends Controller
             ->inRandomOrder()
             ->take(1)
             ->get();
-
 
         return view(
             'index',

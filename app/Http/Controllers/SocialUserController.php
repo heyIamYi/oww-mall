@@ -19,16 +19,10 @@ class SocialUserController extends Controller
     public function googlecallback(Request $request)
     {
         $user_data = Socialite::driver('google')->user();
-        // dd($request->all());
-
-        // dd($user_data->name);
-
-        // $uuid = Str::uuid()->toString();
-        // dd($uuid,Hash::make($uuid.now()));
 
         // 註冊過直接登入,沒註冊過創建新使用者
 
-        $g_user = User::where('email', '=', $user_data->email)->where('ac_type', '=', 'google')->first();
+        $g_user = User::where('email', '=', $user_data->email)->first();
 
         // dd($g_user);
 
@@ -38,12 +32,12 @@ class SocialUserController extends Controller
         } else {
             $uuid = Str::uuid()->toString();
             $g_user = User::create([
-            'name' => $user_data->name,
-            'email'=> $user_data->email,
-            'password' => Hash::make($uuid . now()),
-            'user_type' => 'google',
-            'power' =>'1',
-            'ac_type' =>'email',
+                'name' => $user_data->name,
+                'email' => $user_data->email,
+                'password' => Hash::make($uuid . now()),
+                'user_type' => 'google',
+                'power' => '1',
+                'ac_type' => 'email',
             ]);
 
             $g_user->save();
@@ -51,7 +45,6 @@ class SocialUserController extends Controller
             Auth::login($g_user);
 
             return redirect('/');
-
         }
 
     }

@@ -2,9 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use App\Models\OrderList;
-
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property integer $id
@@ -38,9 +37,9 @@ class Order extends Model
      */
     protected $fillable = ['created_at', 'updated_at', 'subtotal', 'shipping_fee', 'total', 'product_qty', 'name', 'phone', 'email', 'address', 'pay_way', 'shipping_way', 'store_address', 'status', 'ps'];
 
-
-    public function detail(){
+    public function detail()
+    {
         // 別人vs自己 訂單清單的名稱 要上 某筆訂單的ID
-        return $this->hasMany(OrderList::class,'order_id','id');
+        return $this->hasMany(OrderList::class, 'order_id', 'id');
     }
 }

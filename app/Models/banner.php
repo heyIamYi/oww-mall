@@ -15,8 +15,7 @@ use Illuminate\Database\Eloquent\Model;
 class banner extends Model
 {
 
-    protected $table ='banners';
-
+    protected $table = 'banners';
 
     /**
      * The "type" of the auto-incrementing ID.
@@ -28,5 +27,5 @@ class banner extends Model
     /**
      * @var array
      */
-    protected $fillable = [ 'img_path', 'img_opacity', 'weight'];
+    protected $fillable = ['img_path', 'img_opacity', 'weight'];
 }

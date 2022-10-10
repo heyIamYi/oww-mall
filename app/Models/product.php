@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Models;
-use Illuminate\Database\Eloquent\Model;
+
 use App\Models\product_img;
 use App\Models\ShoppingCart;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property integer $id
@@ -18,7 +19,7 @@ use App\Models\ShoppingCart;
 class product extends Model
 {
 
-    protected $table ='products';
+    protected $table = 'products';
 
     /**
      * The "type" of the auto-incrementing ID.
@@ -30,21 +31,18 @@ class product extends Model
     /**
      * @var array
      */
-    protected $fillable = [ 'name', 'price', 'quantity', 'description', 'img'];
+    protected $fillable = ['name', 'price', 'quantity', 'description', 'img'];
 
+    public function imgs()
+    {
 
-
-    public function imgs(){
-
-        return $this->hasMany(product_img::class,'product_id','id');
+        return $this->hasMany(product_img::class, 'product_id', 'id');
 
     }
 
-    public function shoppingCart(){
-        return $this->hasMany(ShoppingCart::class,'Product_id','id');
+    public function shoppingCart()
+    {
+        return $this->hasMany(ShoppingCart::class, 'Product_id', 'id');
     }
-
-
-
 
 }

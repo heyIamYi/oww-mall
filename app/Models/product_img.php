@@ -14,8 +14,7 @@ use Illuminate\Database\Eloquent\Model;
 class product_img extends Model
 {
 
-
-    protected $table ='product_imgs';
+    protected $table = 'product_imgs';
     protected $primary = 'id';
     /**
      * The "type" of the auto-incrementing ID.
@@ -29,13 +28,11 @@ class product_img extends Model
      */
     protected $fillable = ['created_at', 'updated_at', 'img_path', 'product_id'];
 
-
-    public function product(){
+    public function product()
+    {
         // $this->hasOne(product::class,'id','product_id');
 
-        $this->belongsTo(product::class,'product_id','id');
+        $this->belongsTo(product::class, 'product_id', 'id');
     }
-
-
 
 }

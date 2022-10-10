@@ -18,7 +18,7 @@
 
     {{-- <script src="https://apis.google.com/js/platform.js" async="async"></script> --}}
     {{-- <meta name="google-signin-client_id" --}}
-        {{-- content="504504813723-pdjup76aefhscls8ulm2usl5q68io3u6.apps.googleusercontent.com" /> --}}
+    {{-- content="504504813723-pdjup76aefhscls8ulm2usl5q68io3u6.apps.googleusercontent.com" /> --}}
 
 </head>
 
@@ -49,13 +49,16 @@
                     <!-- SVG超連結 -->
                     <div class="svg-box d-flex">
                         <div class="box-top d-flex ">
-                                <a href="{{ route ('googlelogin')}}">google登入</a>
+                            <a href="{{ route('googlelogin') }}">
+                                {{-- google登入 --}}
+                                <img class="w-100" src="./img/login-page/google-login.png" alt="google-login-botton">
+                            </a>
                         </div>
                     </div>
-                    <!-- 使用其他方式登入 -->
+                    {{-- <!-- 使用其他方式登入 -->
                     <div class="box-bot d-flex">
                         <p>or use email your account </p>
-                    </div>
+                    </div> --}}
                     <!-- 登入表單 -->
                     <div class="login-form d-flex">
                         <form method="POST" action="{{ route('login') }}">
@@ -68,13 +71,16 @@
                                 <input type="password" name="password" class="form-control password"
                                     id="exampleInputPassword1" placeholder="Password">
                             </div>
+
+
+
                             <div id="emailHelp" class="form-text">
                                 <input id="remember_me" type="checkbox"
                                     class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                     name="remember">
                                 <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                                Forgot your password?
                             </div>
+
                             <button type="submit" class="btn btn-primary">SIGN IN</button>
                             <a href="/register"><button type="button" type="submit" class="btn btn-primary">SIGN
                                     UP</button></a>
