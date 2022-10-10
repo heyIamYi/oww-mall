@@ -1,5 +1,7 @@
-上課實作練習的電商網站。
-實作內容包含（會員系統 / 產品上下架 / 購物車功能 / 檢視訂單 / 綠界金流API串接）
+全端課程實作練習的電商網站。
+全端課程實作內容包含（會員系統 / 產品上下架 / 購物車功能 / 檢視訂單 ）
+
+額外自行更新功能（綠界金流API串接 / Google使用登入）
 
 實作內容說明：
 透過Laravel 9.x 使用 MVC架構 撰寫開發，使用 RESTful API 的設計模式撰寫 Route。
@@ -20,12 +22,16 @@
 
 3.檢視訂單：可在下單結束後，重複觀看自己購買內容
 
-4.金流串接：付錢
+4.金流串接：前往付款後返回商店
 
+5.Google使用登入：可利用google登入後成為會員
+
+
+------------------金流測試卡號------------------
 測試卡號   4311-9522-2222-2222
 卡號安全碼 222
 有效日期   輸入大於今天日期
-
+-----------------------------------------------
 
 
 ------------------快速連結相關頁面------------------
@@ -46,10 +52,12 @@ https://github.com/heyIamYi/Full-class-E-commerce/tree/main/app/Models
 Session應用 (126行)
 https://github.com/heyIamYi/Full-class-E-commerce/blob/main/app/Http/Controllers/ShoppingCarController.php
 
+
+
 ------------------其他第三方API應用------------------
 
 金流串接
 https://github.com/heyIamYi/Full-class-E-commerce/blob/main/app/Http/Controllers/OrderController.php
 
 GoogleAPI登入
-https://github.com/heyIamYi/Full-class-E-commerce/blob/main/resources/views/login.blade.php
+https://github.com/heyIamYi/Full-class-E-commerce/blob/main/app/Http/Controllers/SocialUserController.php
