@@ -12,7 +12,7 @@ return [
     | location for this type of information, allowing packages to have
     | a conventional file to locate the various service credentials.
     |
-    */
+     */
 
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
@@ -29,6 +29,14 @@ return [
         'key' => env('AWS_ACCESS_KEY_ID'),
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
+    ],
+
+    # 第三方登入
+
+    'google' => [
+        'client_id' => '422340906679-mkiu6onrf96dhsage7cqh61da6usou54.apps.googleusercontent.com',
+        'client_secret' => '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',
+        'redirect' => 'http://127.0.0.1:8000/google/callback',
     ],
 
 ];

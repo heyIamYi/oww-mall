@@ -7,6 +7,8 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderManageController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShoppingCarController;
+use App\Http\Controllers\SocialUserController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -158,8 +160,11 @@ Route::post('/callback', [OrderContorller::class, 'callback']);
 // success 成功則返回任何網址
 // Route::get('/success', [OrderContorller::class, 'checkedout4']);
 
-// 第三方API練習
+
 /**
- * API重新導向的部分，似乎不能在這裡使用.
+ * GOOGLE 登入與重新導向
  */
-Route::get('/googleapi', [PublicApiController::class, 'googleapi']);
+
+Route::get('/google/redirect', [SocialUserController::class, 'googleredirect'])->name('googlelogin');
+Route::get('/google/callback', [SocialUserController::class, 'googlecallback']);
+

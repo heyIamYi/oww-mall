@@ -14,11 +14,11 @@
     {{-- google 客戶端登入API  --}}
 
 
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    {{-- <script src="https://apis.google.com/js/platform.js" async defer></script> --}}
 
     {{-- <script src="https://apis.google.com/js/platform.js" async="async"></script> --}}
-    <meta name="google-signin-client_id"
-        content="504504813723-pdjup76aefhscls8ulm2usl5q68io3u6.apps.googleusercontent.com" />
+    {{-- <meta name="google-signin-client_id" --}}
+        {{-- content="504504813723-pdjup76aefhscls8ulm2usl5q68io3u6.apps.googleusercontent.com" /> --}}
 
 </head>
 
@@ -49,9 +49,7 @@
                     <!-- SVG超連結 -->
                     <div class="svg-box d-flex">
                         <div class="box-top d-flex ">
-                            <div class="box1 d-flex">
-                                <div class="g-signin2" data-onsuccess="onSignIn"></div>
-                            </div>
+                                <a href="{{ route ('googlelogin')}}">google登入</a>
                         </div>
                     </div>
                     <!-- 使用其他方式登入 -->
@@ -95,7 +93,7 @@
             </div>
         </div>
     </main>
-    <script>
+    {{-- <script>
         /*
          * Create form to request access token from Google's OAuth 2.0 server.
          */
@@ -111,7 +109,7 @@
             // Parameters to pass to OAuth 2.0 endpoint.
             var params = {
                 'client_id': '504504813723-pdjup76aefhscls8ulm2usl5q68io3u6.apps.googleusercontent.com',
-                
+
             //此處URL需使用Ngrok.io以及在Google申請的帳號裡面修改相關授權網域.10/04
                 'redirect_uri': 'https://ab93-118-233-192-185.jp.ngrok.io/googleapi',
                 'response_type': 'token',
@@ -133,7 +131,7 @@
             document.body.appendChild(form);
             form.submit();
         }
-    </script>
+    </script> --}}
 
 </body>
 

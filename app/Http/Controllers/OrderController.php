@@ -68,7 +68,6 @@ class OrderController extends Controller
             'PeriodReturnURL' => 'https://127.0.0.1:8000/show_order/' . $id,
 
             // 訂單完成後回傳網址
-
             'ClientBackURL' => 'https://127.0.0.1:8000/show_order/' . $order->id,
 
         ];
