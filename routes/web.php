@@ -1,13 +1,13 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ShoppingCarController;
-use App\Http\Controllers\BannerController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\AccountController;
-use App\Http\Controllers\OrderManageController;
+use App\Http\Controllers\BannerController;
+use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\OrderManageController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ShoppingCarController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +18,7 @@ use App\Http\Controllers\OrderController;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::get('/a', function () {
     return view('welcome');
@@ -41,7 +41,7 @@ require __DIR__ . '/auth.php';
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 //購物網站首頁
 Route::get('/', [ShoppingCarController::class, 'index']);
@@ -82,7 +82,7 @@ Route::prefix('/comment')->group(function () {
 //群組化
 
 Route::prefix('/account')
-    ->middleware(['auth', ])
+    ->middleware(['auth'])
     ->group(function () {
         Route::get('/', [AccountController::class, 'index']);
         Route::get('/create', [AccountController::class, 'create']);
@@ -146,28 +146,20 @@ Route::prefix('/ordermanage')->group(function () {
     Route::post('/update/{id}', [OrderManageController::class, 'update']);
 });
 
-
 // 刪除按鈕
-Route::post('/deleteList/{id}',[ShoppingCarController::class, 'deleteList']);
-
-
+Route::post('/deleteList/{id}', [ShoppingCarController::class, 'deleteList']);
 
 // 金流
-Route::post('/creditcard',[OrderController::class,'creditcard']);
+Route::get('/creditcard/{id}', [OrderController::class, 'creditcard']);
 
 //callback 處理訂單狀態
-Route::post('/callback',[OrderContorller::class,'']);
+Route::post('/callback', [OrderContorller::class, 'callback']);
 
 // success 成功則返回任何網址
-Route::get('/success',[OrderContorller::class,'checkedout4']);
-
-
+// Route::get('/success', [OrderContorller::class, 'checkedout4']);
 
 // 第三方API練習
 /**
  * API重新導向的部分，似乎不能在這裡使用.
  */
-Route::get('/googleapi',[PublicApiController::class,'googleapi']);
-
-
-
+Route::get('/googleapi', [PublicApiController::class, 'googleapi']);

@@ -11,7 +11,7 @@
 
 @section('main')
         <div class="banner .container-fluid">
-            <form action="/creditcard" method="post"  class="list-detail">
+            <form action="/checkedout4" method="post"  class="list-detail">
                 @csrf
                 <!-- 上方進度條 -->
                 <div id="section1" class="container-xxl">

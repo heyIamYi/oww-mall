@@ -29,6 +29,12 @@ class ShoppingCarController extends Controller
         // return view('index',compact('data'));
     }
 
+    //登入頁面
+    public function login()
+    {
+        return view('login');
+    }
+
     //購物網站留言板
     public function comment()
     {
@@ -76,6 +82,7 @@ class ShoppingCarController extends Controller
 
         return redirect('/comment');
     }
+
 
     // 新增至購物車頁面
 
@@ -194,7 +201,7 @@ class ShoppingCarController extends Controller
 
     public function checkedout4(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
 
         $Shoppingcartuser = Auth::id();
 
@@ -255,17 +262,13 @@ class ShoppingCarController extends Controller
         }
 
         // dd($order);
-        return redirect('/show_order/' . $order->id);
+        return redirect('/creditcard/'.$order->id);
     }
 
     public function show_order($id)
     {
         $order = Order::find($id);
-
-        // dd($order);
         $ShoppingCart = ShoppingCart::where('user_id', Auth::user()->id)->get();
-        // dd($order);
-
         $total_qty = session()->get('amount');
         $total_price = session()->get('total_price');
 
@@ -279,10 +282,6 @@ class ShoppingCarController extends Controller
         );
     }
 
-    public function login()
-    {
-        return view('login');
-    }
 
     public function deleteList(Request $request, $id)
     {
