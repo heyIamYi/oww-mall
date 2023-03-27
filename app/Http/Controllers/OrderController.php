@@ -64,11 +64,11 @@ class OrderController extends Controller
             'EncryptType' => 1,
 
             // 付款完成回傳資料
-            'ReturnURL' => 'http://127.0.0.1:8000/show_order/' . $id,
-            'PeriodReturnURL' => 'http://127.0.0.1:8000/show_order/' . $id,
+            'ReturnURL' => 'https://oww-mall.site/show_order/' . $id,
+            'PeriodReturnURL' => 'https://oww-mall.site/show_order/' . $id,
 
             // 訂單完成後回傳網址
-            'ClientBackURL' => 'http://127.0.0.1:8000/show_order/' . $order->id,
+            'ClientBackURL' => 'https://oww-mall.site/show_order/' . $order->id,
 
         ];
         $action = 'https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V5';

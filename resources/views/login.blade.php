@@ -41,10 +41,9 @@
                 <div class="right-box d-flex">
                     <!-- LOGO -->
                     <div class="logo-box d-flex">
-                        <div class="logo">
-                            <img src="./img/login-page/logo.png" alt="">
+                        <div class="logo w-50">
+                            <img class="w-100" src="./img/logo/logo.png" alt="">
                         </div>
-                        <h3>數位方塊</h3>
                     </div>
                     <!-- SVG超連結 -->
                     <div class="svg-box d-flex">

@@ -34,9 +34,9 @@ return [
     # 第三方登入
 
     'google' => [
-        'client_id' => '422340906679-mkiu6onrf96dhsage7cqh61da6usou54.apps.googleusercontent.com',
-        'client_secret' => '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',
-        'redirect' => 'http://127.0.0.1:8000/google/callback',
+        'client_id' => '119600801771-92gd9tniqaoi9ftdd5961f532nhb5s2g.apps.googleusercontent.com',
+        'client_secret' => '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',
+        'redirect' => 'https://oww-mall.site/google/callback',
     ],
 
 ];
