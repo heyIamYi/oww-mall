@@ -11,12 +11,12 @@ use Laravel\Socialite\Facades\Socialite;
 
 class SocialUserController extends Controller
 {
-    public function googleredirect(Request $request)
+    public function googleredirect()
     {
         return Socialite::driver('google')->redirect();
     }
 
-    public function googlecallback(Request $request)
+    public function googlecallback()
     {
         $user_data = Socialite::driver('google')->user();
 
