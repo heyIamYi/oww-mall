@@ -28,7 +28,6 @@ class SocialUserController extends Controller
 
         if ($g_user) {
             Auth::login($g_user);
-            dd(Auth::login($g_user));
             return redirect('/');
         } else {
             $uuid = Str::uuid()->toString();
@@ -44,7 +43,6 @@ class SocialUserController extends Controller
             $g_user->save();
 
             Auth::login($g_user);
-            dd(Auth::login($g_user), $g_user);
 
             return redirect('/');
         }
