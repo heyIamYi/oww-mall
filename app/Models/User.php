@@ -12,6 +12,11 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
     protected $table = 'users';
 
     /**
@@ -48,7 +53,6 @@ class User extends Authenticatable
     //使用者可以擁有多筆想要的商品
     public function shopping_list()
     {
-
         return $this->hasMany(ShoppingCart::class, 'user_id', 'id');
     }
 
