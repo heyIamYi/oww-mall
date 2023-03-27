@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Comment;
 use App\Models\Order;
 use App\Models\OrderList;
-use App\Models\product;
+use App\Models\Product;
 use App\Models\ShoppingCart;
 use App\Models\User;
 use Illuminate\Http\Request;
