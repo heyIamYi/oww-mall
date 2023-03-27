@@ -26,8 +26,7 @@ class SocialUserController extends Controller
 
         if ($g_user) {
             Auth::login($g_user);
-            $cc = Auth::attempt(['email' => $g_user->email, 'password' =>  $g_user->password]);
-            dd($g_user,Auth::login($g_user), $cc);
+            Auth::attempt(['email' => $g_user->email, 'password' =>  $g_user->password]);
             return redirect('/');
         } else {
             $uuid = Str::uuid()->toString();
