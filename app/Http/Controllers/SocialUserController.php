@@ -27,6 +27,7 @@ class SocialUserController extends Controller
         // dd($g_user);
 
         if ($g_user) {
+            dd($g_user);
             Auth::login($g_user);
             return redirect('/');
         } else {
