@@ -25,7 +25,12 @@ class SocialUserController extends Controller
         $g_user = User::where('email', '=', $user_data->email)->first();
 
         if ($g_user) {
-            Auth::login($g_user);
+            // Auth::login($g_user);
+            Auth::attempt([
+                'name' => $g_user->name,
+                'email' => $g_user->email,
+                'password' => $g_user->password
+            ]);
             return redirect('/');
         } else {
             $uuid = Str::uuid()->toString();
@@ -40,7 +45,12 @@ class SocialUserController extends Controller
 
             $g_user->save();
 
-            Auth::login($g_user);
+            // Auth::login($g_user);
+            Auth::attempt([
+                'name' => $g_user->name,
+                'email' => $g_user->email,
+                'password' => $g_user->password
+            ]);
 
             return redirect('/');
         }
