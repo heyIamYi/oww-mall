@@ -31,6 +31,7 @@ class SocialUserController extends Controller
                 'email' => $g_user->email,
                 'password' => $g_user->password
             ]);
+            dd($g_user, Auth::login(), Auth::login($g_user));
             return redirect('/');
         } else {
             $uuid = Str::uuid()->toString();
