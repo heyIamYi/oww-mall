@@ -38,7 +38,7 @@ class ProductController extends Controller
 
         // dd($path->all());
 
-        $product = product::create([
+        $product = Product::create([
             'img' => $path,
             'name' => $request->name,
             'description' => $request->description,
@@ -64,7 +64,7 @@ class ProductController extends Controller
     //編輯頁面
     public function edit($id)
     {
-        $product = product::find($id);
+        $product = Product::find($id);
         $product_img = Product_img::get();
         $slot = '';
         $header = '';
@@ -113,7 +113,7 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
 
-        $imgs = product_img::where('product_id', $id)->get();
+        $imgs = Product_img::where('product_id', $id)->get();
 
         foreach ($imgs as $key => $value) {
             FilesController::deleteUpload($value->img_path);
@@ -128,7 +128,7 @@ class ProductController extends Controller
 
     public function delete_img($img_id)
     {
-        $img = product_img::find($img_id);
+        $img = Product_img::find($img_id);
 
         FilesController::deleteUpload($img->img_path);
 
@@ -145,10 +145,10 @@ class ProductController extends Controller
         //主要圖片與描述
 
         // dd($id);
-        $product = product::find($id);
+        $product = Product::find($id);
         // dd($product);
         $product_img = Product_img::get();
-        $product2 = product::find($id)->where('id', $id)->get();
+        $product2 = Product::find($id)->where('id', $id)->get();
         // dd($product);
 
         return view('shopping.productinfo', compact('product', 'product_img', 'product2'));

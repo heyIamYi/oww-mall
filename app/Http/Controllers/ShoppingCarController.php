@@ -87,7 +87,7 @@ class ShoppingCarController extends Controller
 
     public function add_cart(Request $request)
     {
-        $product = product::find($request->product_id);
+        $product = Product::find($request->product_id);
         // dd($request->all(),$product->all());
         // dd($product);
 
@@ -131,7 +131,7 @@ class ShoppingCarController extends Controller
     //購物車結帳頁面
     public function checkedout1()
     {
-        $product = product::get();
+        $product = Product::get();
 
         $ShoppingCart = ShoppingCart::where('user_id', Auth::user()->id)->get();
         // dd($ShoppingCart);

@@ -29,7 +29,7 @@ class OrderController extends Controller
         // 先取得購物車資料,在取得購物車的產品資訊
 
         $Shoppingcartuser = Auth::id();
-        $product = product::get();
+        $product = Product::get();
 
         $order = Order::find($id);
 
