@@ -13,11 +13,19 @@ class SocialUserController extends Controller
 {
     public function googleredirect()
     {
+        $url = "https://oww-mall.site/google/callback";
+
+        config()->set('services.google.redirect', $url);
+
         return Socialite::driver('google')->redirect();
     }
 
     public function googlecallback()
     {
+        $url = "https://oww-mall.site/google/callback";
+
+        config()->set('services.google.redirect', $url);
+
         $user_data = Socialite::driver('google')->user();
 
         // 註冊過直接登入,沒註冊過創建新使用者
