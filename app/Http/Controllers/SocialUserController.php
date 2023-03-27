@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -23,12 +24,8 @@ class SocialUserController extends Controller
 
         $g_user = User::where('email', '=', $user_data->email)->first();
 
-        // dd($g_user);
-
         if ($g_user) {
-            if (Hash::check($g_user['password'], $g_user->password)) {
-                Auth::login($g_user);
-            }
+            Auth::login($g_user);
             return redirect('/');
         } else {
             $uuid = Str::uuid()->toString();
@@ -36,17 +33,15 @@ class SocialUserController extends Controller
                 'name' => $user_data->name,
                 'email' => $user_data->email,
                 'password' => Hash::make($uuid . now()),
-                // 'user_type' => 'google',
+                'user_type' => 'google',
                 'power' => '1',
                 'ac_type' => 'email',
             ]);
 
             $g_user->save();
 
-            if (Hash::check($g_user['password'], $g_user->password)) {
-                Auth::login($g_user);
-            }
-            
+            Auth::login($g_user);
+
             return redirect('/');
         }
 
