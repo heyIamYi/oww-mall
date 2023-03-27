@@ -51,7 +51,6 @@
                     <li class="d-flex align-items-center justify-content-center">
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-
                             <x-dropdown-link :href="route('logout')"
                                 onclick="event.preventDefault();
                                         this.closest('form').submit();">
