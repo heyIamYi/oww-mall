@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $description
  * @property string $img
  */
-class product extends Model
+class Product extends Model
 {
 
     protected $table = 'products';
