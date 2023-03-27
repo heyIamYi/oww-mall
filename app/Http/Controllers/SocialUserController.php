@@ -26,7 +26,7 @@ class SocialUserController extends Controller
 
         config()->set('services.google.redirect', $url);
 
-        $user_data = Socialite::driver('google')->user();
+        $user_data = Socialite::driver('google')->stateless()->user();
 
         // 註冊過直接登入,沒註冊過創建新使用者
 
