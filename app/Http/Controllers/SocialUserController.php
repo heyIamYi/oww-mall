@@ -19,7 +19,6 @@ class SocialUserController extends Controller
     public function googlecallback()
     {
         $user_data = Socialite::driver('google')->stateless()->user();
-        dd($user_data);
 
         // 註冊過直接登入,沒註冊過創建新使用者
 
@@ -44,6 +43,7 @@ class SocialUserController extends Controller
             $g_user->save();
 
             Auth::login($g_user);
+            dd(Auth::login($g_user), $g_user);
 
             return redirect('/');
         }
