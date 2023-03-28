@@ -1,0 +1,16 @@
+[
+    {
+        "name":"測試一號",
+        "email":"test001@fackmail.com",
+        "password":"123456",
+        "power":"1",
+        "ac_type":"email"
+    },
+    {
+        "name":"測試二號",
+        "email":"test002@fackmail.com",
+        "password":"123456",
+        "power":"1",
+        "ac_type":"email"
+    }
+]
