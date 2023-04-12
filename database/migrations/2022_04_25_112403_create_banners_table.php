@@ -19,9 +19,9 @@ return new class extends Migration
 
             $table->string('img_path')->nullable()->comment('圖片路徑');
 
-$table->float('img_opacity')->nullable()->comment('圖片透明度');
+            $table->float('img_opacity')->nullable()->comment('圖片透明度');
 
-$table->integer('weight')->nullable()->comment('圖片權重');
+            $table->integer('weight')->nullable()->comment('圖片權重');
 
         });
     }

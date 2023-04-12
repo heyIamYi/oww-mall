@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\product;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
@@ -37,7 +37,7 @@ class ShoppingCart extends Model
 
     public function product()
     {
-        return $this->hasOne(product::class, 'id', 'product_id');
+        return $this->hasOne(Product::class, 'id', 'product_id');
     }
 
     public function user()

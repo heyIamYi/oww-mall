@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Product;
 
 /**
  * @property integer $id
@@ -32,7 +33,7 @@ class product_img extends Model
     {
         // $this->hasOne(product::class,'id','product_id');
 
-        $this->belongsTo(product::class, 'product_id', 'id');
+        $this->belongsTo(Product::class, 'product_id', 'id');
     }
 
 }

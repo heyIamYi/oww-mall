@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use App\Models\Order;
-use App\Models\product;
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -45,6 +45,6 @@ class OrderList extends Model
     public function product()
     {
         //hasOne    ->別人對自己
-        return $this->hasOne(product::class, 'id', 'product_id');
+        return $this->hasOne(Product::class, 'id', 'product_id');
     }
 }

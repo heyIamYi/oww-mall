@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\product_img;
+use App\Models\Product_img;
 use App\Models\ShoppingCart;
 use Illuminate\Database\Eloquent\Model;
 
@@ -36,7 +36,7 @@ class Product extends Model
     public function imgs()
     {
 
-        return $this->hasMany(product_img::class, 'product_id', 'id');
+        return $this->hasMany(Product_img::class, 'product_id', 'id');
 
     }
 
