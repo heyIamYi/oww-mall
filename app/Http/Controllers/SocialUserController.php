@@ -21,7 +21,7 @@ class SocialUserController extends Controller
         $user_data = Socialite::driver('google')->stateless()->user();
 
         // 註冊過直接登入,沒註冊過創建新使用者
-        $g_user = User::where('email', '=', $user_data->email)->find(1);
+        $g_user = User::where('email', '=', $user_data->email)->first();
         $g_test = User::get();
 
         dd($user_data, $user_data->email, $user_data['email'], $g_user, $g_test);
