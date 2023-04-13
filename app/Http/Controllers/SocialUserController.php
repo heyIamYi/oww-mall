@@ -23,7 +23,7 @@ class SocialUserController extends Controller
         // 註冊過直接登入,沒註冊過創建新使用者
         $g_user = User::where('email', '=', $user_data->email)->find(1);
 
-        dd($user_data,$g_user);
+        dd($user_data, $user_data->email, $user_data['email'], $g_user);
 
         if ($g_user) {
             Auth::login($g_user);
