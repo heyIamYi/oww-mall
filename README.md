@@ -8,10 +8,16 @@ https://oww-mall.site/
 
 安裝
 =
+資料庫預設名稱為 oww
 
 下載後請執行
 ```
 bash BuildENV.sh
+```
+
+並透過以下指令寫入基本資料
+```
+php artisan oww:install
 ```
 
 目前功能
