@@ -32,7 +32,7 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
 
         $path = FilesController::imgUpload($request->product_img, 'product');
 
