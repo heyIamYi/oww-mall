@@ -26,7 +26,7 @@ class TrackingController extends Controller
         ];
 
         $response = Http::post($apiUrl, $requestData);
-        dd($response);
+        dd($pixelId, $apiUrl, $response->all());
 
         if ($response->successful()) {
             return response()->json(['success' => true]);
