@@ -15,7 +15,10 @@ class TrackingController extends Controller
         $eventData = [
             'event_name' => 'PageView',
             'event_time' => time(),
-            'user_data' => [],
+            'user_data' => [
+                'client_ip_address' => $request->ip(),
+                'client_user_agent' => $request->userAgent(),
+            ],
             'test_event_code' => 'TEST4444'
         ];
 
