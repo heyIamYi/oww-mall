@@ -48,11 +48,9 @@
         });
         fbq('track', 'PageView');
 
-        snetPageView();
         // 傳送資料
-        function snetPageView() {
             let csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
+            console.log(csrfToken);
             fetch('/track-event', {
                     method: 'POST',
                     headers: {
@@ -74,7 +72,6 @@
                     console.error(error);
                 });
 
-        }
     </script>
     <noscript><img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=520514866883077&ev=PageView&noscript=1" /></noscript>
