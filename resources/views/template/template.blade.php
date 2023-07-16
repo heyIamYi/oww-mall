@@ -39,7 +39,9 @@
     snetPageView();
     // 傳送資料
     function snetPageView() {
-        fetch('/track-event')
+        fetch('/track-event',{
+            method:post,
+        })
         .then(response => {
             console.log(response);
             if (response == 'success') {
