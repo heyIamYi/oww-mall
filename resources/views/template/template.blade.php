@@ -49,14 +49,9 @@
         fbq('track', 'PageView');
 
         // 傳送資料
-        let csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
         console.log(csrfToken);
         fetch('/track-event', {
-                method: 'POST',
-                headers: {
-                    // 'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': csrfToken
-                },
+                method:"GET",
             })
             .then(response => {
                 console.log(response);

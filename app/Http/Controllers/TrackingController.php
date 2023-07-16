@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Http;
 
 class TrackingController extends Controller
 {
-    public function trackPageView(Request $request)
+    public function trackPageView()
     {
         dd(231);
         $pixelId = config('app.facebook_pixel_id');
