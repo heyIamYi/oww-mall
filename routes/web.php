@@ -176,4 +176,4 @@ Route::get('/google/callback', [SocialUserController::class, 'googlecallback']);
  */
 
 
-Route::post('/trackEvent', [TrackingController::class, 'trackPageView']);
+Route::post('/trackEvent', [TrackingController::class, 'trackEvent']);
