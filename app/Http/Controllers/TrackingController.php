@@ -14,9 +14,6 @@ class TrackingController extends Controller
         $eventData = [
             'event_name' => 'PageView',
             'event_time' => time(),
-            'user_data' => [
-                'em' => $request->input('email'),
-            ],
         ];
 
         $apiUrl = 'https://graph.facebook.com/v17.0/' . $pixelId . '/events';
