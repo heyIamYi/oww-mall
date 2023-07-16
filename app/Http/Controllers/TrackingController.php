@@ -3,20 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Facebook\Facebook;
 
 class TrackingController extends Controller
 {
-
-    protected $facebook;
-
-    public function __construct(Facebook $facebook)
-    {
-        $this->facebook = $facebook;
-    }
-
-
-    public function trackEvent()
+    public function trackEvent(Request $request)
     {
         $pixelId = config('services.facebook.pixel_id');
         $accessToken = config('services.facebook.access_token');
@@ -25,21 +15,35 @@ class TrackingController extends Controller
             'event_name' => 'PageView',
             'event_time' => time(),
             'user_data' => [
-                'em' => 'user@example.com',
+                'em' => $request->input('email'),
             ],
         ];
 
-        try {
-            $response = $this->facebook->post('/' . $pixelId . '/events', $eventData, $accessToken);
-            $graphNode = $response->getGraphNode();
+        $apiUrl = 'https://graph.facebook.com/v17.0/' . $pixelId . '/events';
 
-            // 在這裡處理成功追蹤事件的邏輯
+        $requestData = [
+            'data' => [$eventData],
+            'access_token' => $accessToken,
+        ];
 
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $apiUrl);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($requestData));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            'Content-Type: application/json',
+        ]);
+
+        $response = curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+        curl_close($ch);
+
+        if ($httpCode == 200) {
             return response()->json(['success' => true]);
-        } catch (\Exception $e) {
-            // 在這裡處理追蹤事件失敗的邏輯
-
-            return response()->json(['error' => $e->getMessage()], 500);
+        } else {
+            return response()->json(['error' => '追蹤事件發送失敗。'], 500);
         }
     }
 }
