@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="this's Zon-Yi's work !">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>
 
@@ -49,11 +48,18 @@
         fbq('track', 'PageView');
 
         // 傳送資料
-        console.log(csrfToken);
-        fetch('/track-event', {
-                method:"GET",
-            })
-            .then(response => {
+
+            let formData = new FormData();
+            formData.append('_method', 'POST');
+            formData.append('_token', '{{ csrf_token() }}');
+
+
+            fetch('track-event', {
+                    method: 'POST',
+                    body: formData
+                })
+
+                .then(response => {
                 console.log(response);
                 if (response.ok) {
                     return response.json();
@@ -66,6 +72,9 @@
             .catch(error => {
                 console.error(error);
             });
+
+
+
     </script>
     <noscript><img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=520514866883077&ev=PageView&noscript=1" /></noscript>
