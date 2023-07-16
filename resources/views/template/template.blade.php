@@ -23,64 +23,23 @@
 
     <!-- Meta Pixel Code -->
     <script>
-        ! function(f, b, e, v, n, t, s) {
-            if (f.fbq) return;
-            n = f.fbq = function() {
-                n.callMethod ?
-                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-            };
-            if (!f._fbq) f._fbq = n;
-            n.push = n;
-            n.loaded = !0;
-            n.version = '2.0';
-            n.queue = [];
-            t = b.createElement(e);
-            t.async = !0;
-            t.src = v;
-            s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
-        }(window, document, 'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '520514866883077', {
-            user_id: 'anonymous_user_id'
-        });
-        fbq('track', 'PageView');
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '520514866883077', {
+         user_id: 'anonymous_user_id'
+    });
+    fbq('track', 'PageView');
 
-        // 觸發 Conversions API
-        let eventData = {
-            event_name: 'ViewContent',
-            event_time: Math.floor(Date.now() / 1000),
-            user_data: {
-                em: 'user@example.com'
-            },
-            custom_data: {
-                content_name: 'Product Name',
-                content_ids: ['123'],
-                content_type: 'product',
-                value: 50.00,
-                currency: 'USD'
-            }
-        };
-
-        // 發送 Conversions API 請求
-        fetch('https://graph.facebook.com/v17.0/520514866883077/events', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer YOUR_ACCESS_TOKEN'
-                },
-                body: JSON.stringify(eventData)
-            })
-            .then(response => response.json())
-            .then(data => {
-                // 在這裡處理成功追蹤事件的邏輯
-            })
-            .catch(error => {
-                // 在這裡處理追蹤事件失敗的邏輯
-            });
     </script>
     <noscript><img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=520514866883077&ev=PageView&noscript=1" /></noscript>
+    src="https://www.facebook.com/tr?id=520514866883077&ev=PageView&noscript=1"
+    /></noscript>
     <!-- End Meta Pixel Code -->
 
 </head>
@@ -89,8 +48,7 @@
     <nav>
         <!-- logo -->
         <div class="container-xxl d-flex justify-content-lg-between ">
-            <div class="logo w-25"><a href="/"><img class="w-100" src="{{ asset('img/logo/logo.png') }}"
-                        alt=""></a></div>
+            <div class="logo w-25"><a href="/"><img class="w-100" src="{{ asset('img/logo/logo.png') }}" alt=""></a></div>
             <!-- 相關超連結 -->
             @auth
 
