@@ -33,6 +33,7 @@ class TrackingController extends Controller
                 ],
             ],
         ]);
+        dd($response);
 
         if ($response->successful()) {
             return response()->json(['success' => true]);
