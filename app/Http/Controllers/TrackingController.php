@@ -12,22 +12,28 @@ class TrackingController extends Controller
         $pixelId = config('services.facebook.pixel_id');
         $accessToken = config('services.facebook.access_token');
 
-        $eventData = [
-            'event_name' => 'PageView',
-            'event_time' => time(),
-            'user_data' => [
-                'client_ip_address' => $request->ip(),
-                'client_user_agent' => $request->userAgent(),
-            ],
-            'test_event_code' => 'TEST4444'
-        ];
 
 
         $apiUrl = "https://graph.facebook.com/v17.0/".$pixelId."/events?access_token=".$accessToken."";
 
 
         $requestData = [
-            'data' => [$eventData],
+            {
+                "data": [
+                    {
+                        "event_name": "PageView",
+                        "event_time": 1689511490,
+                        "action_source": "website",
+                        "user_data": {
+                            "client_ip_address": $request->ip(),
+                            "client_user_agent": $request->userAgent(),,
+                            "country": [
+                                null
+                            ]
+                        }
+                    }
+                ]
+            }
         ];
 
         $response = Http::post($apiUrl, $requestData);
