@@ -36,6 +36,7 @@
     });
     fbq('track', 'PageView');
 
+    snetPageView();
     // 傳送資料
     function snetPageView() {
         fetch('/track-event')
