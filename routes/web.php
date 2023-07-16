@@ -11,6 +11,10 @@ use App\Http\Controllers\SocialUserController;
 
 use Illuminate\Support\Facades\Route;
 
+// 轉換api
+use App\Http\Controllers\TrackingController;
+//
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -166,4 +170,11 @@ Route::post('/callback', [OrderContorller::class, 'callback']);
 
 Route::get('/google/redirect', [SocialUserController::class, 'googleredirect'])->name('googlelogin');
 Route::get('/google/callback', [SocialUserController::class, 'googlecallback']);
+
+/**
+ *  轉換api
+ */
+
+
+Route::post('/track-event', [TrackingController::class, 'trackEvent']);
 
