@@ -19,6 +19,7 @@ class TrackingController extends Controller
         ];
 
         $apiUrl = "https://graph.facebook.com/v17.0/{$pixelId}/events";
+        dd($apiUrl);
 
         $requestData = [
             'data' => [$eventData],
