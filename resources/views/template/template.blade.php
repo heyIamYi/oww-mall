@@ -36,6 +36,19 @@
     });
     fbq('track', 'PageView');
 
+    // 傳送資料
+    function snetPageView() {
+        fetch('/track-event')
+        .then(response => {
+            console.log(response);
+            if (response == 'success') {
+                return response;
+            }
+        })
+        .then(data => {
+            console.log(data);
+        })
+    }
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=520514866883077&ev=PageView&noscript=1"
