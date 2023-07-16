@@ -48,7 +48,6 @@
 
         snetPageView();
         // 傳送資料
-        function snetPageView() {
             function snetPageView() {
                 let csrfToken = '{{ csrf_token() }}';
 
@@ -72,7 +71,6 @@
                     .catch(error => {
                         console.error(error);
                     });
-            }
         }
     </script>
     <noscript><img height="1" width="1" style="display:none"
