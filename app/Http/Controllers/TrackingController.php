@@ -9,8 +9,8 @@ class TrackingController extends Controller
 {
     public function trackEvent(Request $request)
     {
-        $pixelId = config('app.services.facebook_pixel_id');
-        $accessToken = config('app.services.facebook_access_token');
+        $pixelId = config('services.facebook_pixel_id');
+        $accessToken = config('services.facebook_access_token');
 
         $eventData = [
             'event_name' => 'PageView',
@@ -18,8 +18,7 @@ class TrackingController extends Controller
             'user_data' => [],
         ];
 
-        $apiUrl = "https://graph.facebook.com/v17.0/{$pixelId}/events";
-        dd($apiUrl);
+        $apiUrl = "https://graph.facebook.com/v17.0/".$pixelId."/events";
 
         $requestData = [
             'data' => [$eventData],
