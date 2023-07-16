@@ -63,7 +63,7 @@
         };
 
         // 發送 Conversions API 請求
-        fetch('https://graph.facebook.com/v12.0/520514866883077/events', {
+        fetch('https://graph.facebook.com/v17.0/520514866883077/events', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
