@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="this's Zon-Yi's work !">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>
 
         @yield('pageTitle')
@@ -48,28 +50,30 @@
 
         snetPageView();
         // 傳送資料
-            function snetPageView() {
+        function snetPageView() {
+            let csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
-                fetch('/track-event', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': '{{csrf_token() }}'
-                        },
-                    })
-                    .then(response => {
-                        console.log(response);
-                        if (response.ok) {
-                            return response.json();
-                        }
-                        throw new Error('請求失敗');
-                    })
-                    .then(data => {
-                        console.log(data);
-                    })
-                    .catch(error => {
-                        console.error(error);
-                    });
+            fetch('/track-event', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': csrfToken
+                    },
+                })
+                .then(response => {
+                    console.log(response);
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw new Error('請求失敗');
+                })
+                .then(data => {
+                    console.log(data);
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+
         }
     </script>
     <noscript><img height="1" width="1" style="display:none"
