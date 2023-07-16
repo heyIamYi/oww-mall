@@ -49,17 +49,23 @@
 
         // 傳送資料
 
-            let formData = new FormData();
-            formData.append('_method', 'POST');
-            formData.append('_token', '{{ csrf_token() }}');
+
+    </script>
+    <script>
+         let formData = new FormData();
+        formData.append('_method', 'POST');
+        formData.append('_token', '{{ csrf_token() }}');
 
 
-            fetch('track-event', {
-                    method: 'POST',
-                    body: formData
-                })
+        fetch('/trackEvent', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                }
+            })
 
-                .then(response => {
+            .then(response => {
                 console.log(response);
                 if (response.ok) {
                     return response.json();
@@ -72,9 +78,6 @@
             .catch(error => {
                 console.error(error);
             });
-
-
-
     </script>
     <noscript><img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=520514866883077&ev=PageView&noscript=1" /></noscript>
