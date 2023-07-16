@@ -49,29 +49,28 @@
         fbq('track', 'PageView');
 
         // 傳送資料
-            let csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-            console.log(csrfToken);
-            fetch('/track-event', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': csrfToken
-                    },
-                })
-                .then(response => {
-                    console.log(response);
-                    if (response.ok) {
-                        return response.json();
-                    }
-                    throw new Error('請求失敗');
-                })
-                .then(data => {
-                    console.log(data);
-                })
-                .catch(error => {
-                    console.error(error);
-                });
-
+        let csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        console.log(csrfToken);
+        fetch('/track-event', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': csrfToken
+                },
+            })
+            .then(response => {
+                console.log(response);
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error('請求失敗');
+            })
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => {
+                console.error(error);
+            });
     </script>
     <noscript><img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=520514866883077&ev=PageView&noscript=1" /></noscript>

@@ -158,7 +158,7 @@ Route::post('/deleteList/{id}', [ShoppingCarController::class, 'deleteList']);
 // 金流
 Route::get('/creditcard/{id}', [OrderController::class, 'creditcard']);
 // 處理訂單狀態
-Route::post('/callback', [OrderContorller::class, 'callback']);
+Route::post('/callback', [OrderController::class, 'callback']);
 
 // success 成功則返回任何網址
 // Route::get('/success', [OrderContorller::class, 'checkedout4']);
