@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="this's Zon-Yi's work !">
-
+    <meta name="facebook-domain-verification" content="3juy89z9pk9i17no69l1i5j48cxi8x" />
     <title>
 
         @yield('pageTitle')
