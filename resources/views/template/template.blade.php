@@ -49,13 +49,12 @@
         snetPageView();
         // 傳送資料
             function snetPageView() {
-                let csrfToken = '{{ csrf_token() }}';
 
                 fetch('/track-event', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': csrfToken
+                            'X-CSRF-TOKEN': '{{csrf_token() }}'
                         },
                     })
                     .then(response => {
