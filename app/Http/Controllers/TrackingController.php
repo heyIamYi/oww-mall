@@ -40,8 +40,6 @@ class TrackingController extends Controller
 
         curl_close($ch);
 
-        dd($ch);
-
         if ($httpCode == 200) {
             return response()->json(['success' => true]);
         } else {
