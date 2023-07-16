@@ -40,7 +40,7 @@
     // 傳送資料
     function snetPageView() {
         fetch('/track-event',{
-            method:post,
+            method:'post',
         })
         .then(response => {
             console.log(response);
