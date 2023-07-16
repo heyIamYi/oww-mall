@@ -14,24 +14,25 @@ class TrackingController extends Controller
 
         $apiUrl = "https://graph.facebook.com/v17.0/".$pixelId."/events?access_token=".$accessToken;
 
-        $requestData = '{
-            "data": [
-                {
-                    "event_name": "PageView",
-                    "event_time": 1689511490,
-                    "action_source": "website",
-                    "user_data": {
-                        "client_ip_address": "'.$request->ip().'",
-                        "client_user_agent": "'.$request->userAgent().'",
-                        "country": [
-                            null
-                        ]
-                    }
-                }
-            ]
-        }';
-
-        $response = Http::post($apiUrl, $requestData);
+        $response = Http::post($apiUrl, [
+            'data' => [
+                [
+                    'event_name' => 'ViewContent',
+                    'event_time' => time(),
+                    'user_data' => [
+                        'email' => hash('sha256', 'email@example.com'),
+                    ],
+                    'custom_data' => [
+                        'content_name' => 'Product name',
+                        'content_category' => 'Product category',
+                        'content_ids' => ['1234'],
+                        'content_type' => 'product',
+                        'value' => '123.45',
+                        'currency' => 'usd',
+                    ],
+                ],
+            ],
+        ]);
 
         if ($response->successful()) {
             return response()->json(['success' => true]);
