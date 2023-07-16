@@ -16,7 +16,7 @@ class TrackingController extends Controller
     }
 
 
-    public function trackEvent(Request $request)
+    public function trackEvent()
     {
         $pixelId = config('services.facebook.pixel_id');
         $accessToken = config('services.facebook.access_token');
