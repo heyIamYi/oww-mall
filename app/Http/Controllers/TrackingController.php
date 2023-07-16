@@ -22,11 +22,12 @@ class TrackingController extends Controller
             'test_event_code' => 'TEST4444'
         ];
 
-        $apiUrl = "https://graph.facebook.com/v17.0/".$pixelId."/events";
+
+        $apiUrl = "https://graph.facebook.com/v17.0/".$pixelId."/events?access_token=".$accessToken."";
+
 
         $requestData = [
             'data' => [$eventData],
-            'access_token' => $accessToken,
         ];
 
         $response = Http::post($apiUrl, $requestData);
